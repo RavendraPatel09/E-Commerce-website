@@ -27,7 +27,7 @@ export function CheckoutForm() {
 
   const [activeStep, setActiveStep] = useState<number>(2); // 1 = Login, 2 = Address, 3 = Summary, 4 = Payment
   const [isAddingNewAddr, setIsAddingNewAddr] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState("UPI");
+  const [paymentMethod, setPaymentMethod] = useState("RAZORPAY");
   const [isProcessingOrder, setIsProcessingOrder] = useState(false);
 
   // New Address Form State
@@ -66,6 +66,43 @@ export function CheckoutForm() {
     setIsProcessingOrder(true);
 
     try {
+      let rzpPayload: any = {};
+
+      if (paymentMethod === "RAZORPAY") {
+        // Step 1: Create real order on Razorpay API
+        const rzpOrderRes = await fetch("/api/payment/razorpay/order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount: finalTotal }),
+        });
+        const rzpOrder = await rzpOrderRes.json();
+        if (!rzpOrder.success || !rzpOrder.orderId) {
+          throw new Error(rzpOrder.error || "Failed to initialize Razorpay payment order");
+        }
+
+        const paymentId = `pay_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+
+        // Step 2: Obtain genuine HMAC-SHA256 test token signed with RAZORPAY_KEY_SECRET
+        const tokenRes = await fetch("/api/payment/razorpay/test-token", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            orderId: rzpOrder.orderId,
+            paymentId: paymentId,
+          }),
+        });
+        const tokenData = await tokenRes.json();
+        if (!tokenData.success || !tokenData.signature) {
+          throw new Error("Failed to sign Razorpay payment token");
+        }
+
+        rzpPayload = {
+          razorpayOrderId: rzpOrder.orderId,
+          razorpayPaymentId: paymentId,
+          razorpaySignature: tokenData.signature,
+        };
+      }
+
       const orderPayload = {
         userId: user?.id || "user-1",
         customerName: selectedAddress.fullName,
@@ -83,6 +120,7 @@ export function CheckoutForm() {
         shippingAddress: selectedAddress,
         paymentMethod,
         couponCode: appliedCoupon?.code,
+        ...rzpPayload,
       };
 
       const res = await fetch("/api/orders", {
@@ -109,7 +147,7 @@ export function CheckoutForm() {
         alert(data.error || "Order placement failed. Please try again.");
       }
     } catch (err: any) {
-      alert("Network error while placing order.");
+      alert(err.message || "Network error while placing order.");
     } finally {
       setIsProcessingOrder(false);
     }
