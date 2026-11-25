@@ -1127,6 +1127,7 @@ export const SEED_SECTIONS: HomepageSection[] = [
       "prod-nike-air-jordan-1",
       "prod-levis-511-jeans",
       "prod-rayban-aviator-classic",
+      "prod-zara-linen-formal-shirt",
       "prod-forest-essentials-saffron-cream",
       "prod-apple-watch-ultra-2",
     ],
@@ -1143,6 +1144,7 @@ export const SEED_SECTIONS: HomepageSection[] = [
     productIds: [
       "prod-lg-55-oled-evo",
       "prod-samsung-side-by-side-fridge",
+      "prod-ifb-front-load-washing-machine",
       "prod-dyson-v15-detect",
       "prod-philips-air-fryer-xxl",
     ],
@@ -1159,6 +1161,8 @@ export const SEED_SECTIONS: HomepageSection[] = [
     productIds: [
       "prod-wakefit-ergonomic-chair",
       "prod-solid-sheesham-desk",
+      "prod-urban-ladder-fabric-sofa",
+      "prod-solimo-engineered-wood-wardrobe",
       "prod-sleepwell-ortho-mattress",
     ],
     viewAllLink: "/search?category=home-furniture",
