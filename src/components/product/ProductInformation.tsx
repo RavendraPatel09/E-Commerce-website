@@ -26,9 +26,15 @@ import {
 
 interface ProductInformationProps {
   product: Product;
+  selectedVariant?: ProductVariant | null;
+  onVariantChange?: (variant: ProductVariant) => void;
 }
 
-export function ProductInformation({ product }: ProductInformationProps) {
+export function ProductInformation({
+  product,
+  selectedVariant,
+  onVariantChange,
+}: ProductInformationProps) {
   const router = useRouter();
   const { addToCart, cartItems } = useCart();
 
@@ -43,9 +49,16 @@ export function ProductInformation({ product }: ProductInformationProps) {
   const [pincodeError, setPincodeError] = useState("");
 
   // Variant state management
-  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
+  const [internalVariant, setInternalVariant] = useState<ProductVariant | null>(
     product.variants && product.variants.length > 0 ? product.variants[0] : null
   );
+
+  const activeVariant = selectedVariant !== undefined ? selectedVariant : internalVariant;
+
+  const setActiveVariant = (v: ProductVariant) => {
+    if (onVariantChange) onVariantChange(v);
+    setInternalVariant(v);
+  };
 
   // Distinct variant attributes
   const availableColors = Array.from(
@@ -61,18 +74,20 @@ export function ProductInformation({ product }: ProductInformationProps) {
   ) as string[];
 
   // Dynamic pricing based on active variant
-  const currentPrice = selectedVariant ? selectedVariant.price : product.price;
-  const currentOriginalPrice = selectedVariant
-    ? selectedVariant.originalPrice
+  const currentPrice = activeVariant ? activeVariant.price : product.price;
+  const currentOriginalPrice = activeVariant
+    ? activeVariant.originalPrice
     : product.originalPrice;
   const currentDiscount =
     currentOriginalPrice > currentPrice
       ? Math.round(((currentOriginalPrice - currentPrice) / currentOriginalPrice) * 100)
       : product.discountPercentage;
-  const currentStock = selectedVariant ? selectedVariant.stock : product.stockCount;
+  const currentStock = activeVariant ? activeVariant.stock : product.stockCount;
 
-  // Cart status for this product
-  const isInCart = cartItems.some((item) => item.productId === product.id);
+  // Cart status for this product & variant
+  const isInCart = cartItems.some(
+    (item) => item.productId === product.id && item.variantId === activeVariant?.id
+  );
 
   // Record product in recently viewed localStorage
   useEffect(() => {
@@ -92,11 +107,11 @@ export function ProductInformation({ product }: ProductInformationProps) {
       product.variants.find(
         (v) =>
           v.color === color &&
-          (selectedVariant?.storage ? v.storage === selectedVariant.storage : true) &&
-          (selectedVariant?.size ? v.size === selectedVariant.size : true)
+          (activeVariant?.storage ? v.storage === activeVariant.storage : true) &&
+          (activeVariant?.size ? v.size === activeVariant.size : true)
       ) || product.variants.find((v) => v.color === color);
 
-    if (match) setSelectedVariant(match);
+    if (match) setActiveVariant(match);
   };
 
   const handleStorageChange = (storage: string) => {
@@ -105,10 +120,10 @@ export function ProductInformation({ product }: ProductInformationProps) {
       product.variants.find(
         (v) =>
           v.storage === storage &&
-          (selectedVariant?.color ? v.color === selectedVariant.color : true)
+          (activeVariant?.color ? v.color === activeVariant.color : true)
       ) || product.variants.find((v) => v.storage === storage);
 
-    if (match) setSelectedVariant(match);
+    if (match) setActiveVariant(match);
   };
 
   const handleSizeChange = (size: string) => {
@@ -117,22 +132,34 @@ export function ProductInformation({ product }: ProductInformationProps) {
       product.variants.find(
         (v) =>
           v.size === size &&
-          (selectedVariant?.color ? v.color === selectedVariant.color : true)
+          (activeVariant?.color ? v.color === activeVariant.color : true)
       ) || product.variants.find((v) => v.size === size);
 
-    if (match) setSelectedVariant(match);
+    if (match) setActiveVariant(match);
   };
 
   const handleAddToCart = () => {
     if (isInCart) {
       router.push("/cart");
     } else {
-      addToCart(product, 1);
+      addToCart(
+        product,
+        1,
+        activeVariant?.id,
+        activeVariant?.name,
+        activeVariant?.price
+      );
     }
   };
 
   const handleBuyNow = () => {
-    addToCart(product, 1);
+    addToCart(
+      product,
+      1,
+      activeVariant?.id,
+      activeVariant?.name,
+      activeVariant?.price
+    );
     router.push("/checkout");
   };
 
@@ -235,9 +262,9 @@ export function ProductInformation({ product }: ProductInformationProps) {
               <Layers className="w-4 h-4 text-blue-600" />
               Available Product Variants
             </span>
-            {selectedVariant && (
+            {activeVariant && (
               <span className="text-[11px] font-mono text-gray-500">
-                SKU: {selectedVariant.sku}
+                SKU: {activeVariant.sku}
               </span>
             )}
           </div>
@@ -248,12 +275,12 @@ export function ProductInformation({ product }: ProductInformationProps) {
               <div className="text-xs text-gray-700 font-semibold">
                 Color:{" "}
                 <strong className="text-gray-900">
-                  {selectedVariant?.color || availableColors[0]}
+                  {activeVariant?.color || availableColors[0]}
                 </strong>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
                 {availableColors.map((color) => {
-                  const active = selectedVariant?.color === color;
+                  const active = activeVariant?.color === color;
                   return (
                     <button
                       key={color}
@@ -279,12 +306,12 @@ export function ProductInformation({ product }: ProductInformationProps) {
               <div className="text-xs text-gray-700 font-semibold">
                 Storage:{" "}
                 <strong className="text-gray-900">
-                  {selectedVariant?.storage || availableStorages[0]}
+                  {activeVariant?.storage || availableStorages[0]}
                 </strong>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
                 {availableStorages.map((storage) => {
-                  const active = selectedVariant?.storage === storage;
+                  const active = activeVariant?.storage === storage;
                   return (
                     <button
                       key={storage}
@@ -310,12 +337,12 @@ export function ProductInformation({ product }: ProductInformationProps) {
               <div className="text-xs text-gray-700 font-semibold">
                 Size / Dimension:{" "}
                 <strong className="text-gray-900">
-                  {selectedVariant?.size || availableSizes[0]}
+                  {activeVariant?.size || availableSizes[0]}
                 </strong>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
                 {availableSizes.map((size) => {
-                  const active = selectedVariant?.size === size;
+                  const active = activeVariant?.size === size;
                   return (
                     <button
                       key={size}

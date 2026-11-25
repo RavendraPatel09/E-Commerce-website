@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Product } from "@/lib/types";
+import { Product, ProductVariant } from "@/lib/types";
 import { WishlistButton } from "./WishlistButton";
 import { ShoppingCart, Zap, Check } from "lucide-react";
 import { useCart } from "@/context/CartContext";
@@ -10,16 +10,21 @@ import { useRouter } from "next/navigation";
 
 interface ProductGalleryProps {
   product: Product;
+  selectedVariant?: ProductVariant | null;
 }
 
-export function ProductGallery({ product }: ProductGalleryProps) {
+export function ProductGallery({ product, selectedVariant }: ProductGalleryProps) {
   const router = useRouter();
   const { addToCart, cartItems } = useCart();
-  const [selectedImage, setSelectedImage] = useState(product.images[0] || product.thumbnail);
+  const [selectedImage, setSelectedImage] = useState(
+    selectedVariant?.image || product.images[0] || product.thumbnail
+  );
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 0, y: 0 });
 
-  const isInCart = cartItems.some((item) => item.productId === product.id);
+  const isInCart = cartItems.some(
+    (item) => item.productId === product.id && item.variantId === selectedVariant?.id
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -32,12 +37,24 @@ export function ProductGallery({ product }: ProductGalleryProps) {
     if (isInCart) {
       router.push("/cart");
     } else {
-      addToCart(product, 1);
+      addToCart(
+        product,
+        1,
+        selectedVariant?.id,
+        selectedVariant?.name,
+        selectedVariant?.price
+      );
     }
   };
 
   const handleBuyNow = () => {
-    addToCart(product, 1);
+    addToCart(
+      product,
+      1,
+      selectedVariant?.id,
+      selectedVariant?.name,
+      selectedVariant?.price
+    );
     router.push("/checkout");
   };
 

@@ -162,8 +162,9 @@ export interface Order {
   customerPhone: string;
   items: OrderItem[];
   shippingAddress: Address;
-  paymentMethod: "UPI" | "CARD" | "NET_BANKING" | "COD" | "EMI";
+  paymentMethod: "UPI" | "CARD" | "NET_BANKING" | "COD" | "EMI" | "RAZORPAY";
   paymentStatus: "PAID" | "PENDING" | "COD_PENDING" | "REFUNDED";
+  paymentId?: string;
   subtotal: number;
   discount: number;
   couponCode?: string;
