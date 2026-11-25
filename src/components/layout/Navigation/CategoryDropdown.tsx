@@ -8,16 +8,28 @@ import { ChevronRight } from "lucide-react";
 interface CategoryDropdownProps {
   category: Category;
   isOpen: boolean;
+  leftOffset?: number;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   onClose?: () => void;
 }
 
-export function CategoryDropdown({ category, isOpen, onClose }: CategoryDropdownProps) {
+export function CategoryDropdown({
+  category,
+  isOpen,
+  leftOffset = 0,
+  onMouseEnter,
+  onMouseLeave,
+  onClose,
+}: CategoryDropdownProps) {
   if (!isOpen || !category.subcategories || category.subcategories.length === 0) return null;
 
   return (
     <div
-      className="absolute top-full left-0 bg-white shadow-2xl border border-gray-100 rounded-b-sm py-4 px-6 z-40 min-w-[340px] text-left animate-in fade-in slide-in-from-top-1 duration-100"
-      onMouseLeave={onClose}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      style={{ left: `${Math.max(16, Math.min(leftOffset, 900))}px` }}
+      className="absolute top-full bg-white shadow-2xl border border-gray-200 rounded-b-sm py-4 px-6 z-50 min-w-[340px] max-w-[420px] text-left animate-in fade-in slide-in-from-top-1 duration-150"
     >
       <div className="mb-3 pb-2 border-b border-gray-100 flex items-center justify-between">
         <span className="text-xs font-black uppercase tracking-wider text-[#2874f0]">
@@ -33,7 +45,7 @@ export function CategoryDropdown({ category, isOpen, onClose }: CategoryDropdown
         </Link>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 max-h-[380px] overflow-y-auto scrollbar-thin pr-1">
         {category.subcategories.map((sub, idx) => (
           <div key={idx} className="group/sub">
             <Link

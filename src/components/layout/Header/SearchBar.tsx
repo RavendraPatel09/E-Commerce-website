@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Search, X } from "lucide-react";
 import { SearchSuggestions, SuggestionItem } from "./SearchSuggestions";
 
@@ -12,6 +12,7 @@ interface SearchBarProps {
 
 export function SearchBar({ className = "", onSearchSubmit }: SearchBarProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<SuggestionItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,15 @@ export function SearchBar({ className = "", onSearchSubmit }: SearchBarProps) {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const isNavigatingRef = useRef(false);
+
+  // Automatically close dropdown and blur input on route change
+  useEffect(() => {
+    setIsOpen(false);
+    setActiveIndex(-1);
+    setSuggestions([]);
+    if (inputRef.current) inputRef.current.blur();
+  }, [pathname]);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -59,8 +69,10 @@ export function SearchBar({ className = "", onSearchSubmit }: SearchBarProps) {
   }, [query]);
 
   const handleSelectSuggestion = (item: SuggestionItem) => {
+    isNavigatingRef.current = true;
     setIsOpen(false);
     setActiveIndex(-1);
+    setSuggestions([]);
     if (inputRef.current) inputRef.current.blur();
     if (onSearchSubmit) onSearchSubmit();
 
@@ -70,13 +82,24 @@ export function SearchBar({ className = "", onSearchSubmit }: SearchBarProps) {
       setQuery(item.text);
       router.push(`/search?search=${encodeURIComponent(item.text)}`);
     }
+
+    setTimeout(() => {
+      isNavigatingRef.current = false;
+    }, 500);
   };
 
   const handleSubmit = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
-    // If an item is highlighted via keyboard navigation
-    if (activeIndex >= 0 && suggestions[activeIndex]) {
+    if (isNavigatingRef.current) {
+      return;
+    }
+
+    // If an item was actively highlighted via keyboard
+    if (isOpen && activeIndex >= 0 && suggestions[activeIndex]) {
       handleSelectSuggestion(suggestions[activeIndex]);
       return;
     }
@@ -84,6 +107,7 @@ export function SearchBar({ className = "", onSearchSubmit }: SearchBarProps) {
     if (query.trim()) {
       setIsOpen(false);
       setActiveIndex(-1);
+      setSuggestions([]);
       if (inputRef.current) inputRef.current.blur();
       if (onSearchSubmit) onSearchSubmit();
       router.push(`/search?search=${encodeURIComponent(query.trim())}`);
@@ -92,10 +116,20 @@ export function SearchBar({ className = "", onSearchSubmit }: SearchBarProps) {
 
   // Keyboard navigation handler (ArrowUp, ArrowDown, Enter, Escape)
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!isOpen || suggestions.length === 0) {
-      if (e.key === "Enter") {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isOpen && activeIndex >= 0 && suggestions[activeIndex]) {
+        handleSelectSuggestion(suggestions[activeIndex]);
+        return;
+      }
+      if (query.trim()) {
         handleSubmit();
       }
+      return;
+    }
+
+    if (!isOpen || suggestions.length === 0) {
       return;
     }
 
@@ -108,11 +142,6 @@ export function SearchBar({ className = "", onSearchSubmit }: SearchBarProps) {
       case "ArrowUp":
         e.preventDefault();
         setActiveIndex((prev) => (prev > 0 ? prev - 1 : suggestions.length - 1));
-        break;
-
-      case "Enter":
-        e.preventDefault();
-        handleSubmit();
         break;
 
       case "Escape":
@@ -149,6 +178,7 @@ export function SearchBar({ className = "", onSearchSubmit }: SearchBarProps) {
               setQuery("");
               setIsOpen(false);
               setActiveIndex(-1);
+              setSuggestions([]);
             }}
             className="absolute right-9 sm:right-10 text-gray-400 hover:text-gray-600 p-1"
             title="Clear search"
