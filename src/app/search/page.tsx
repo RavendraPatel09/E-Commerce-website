@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Product } from "@/lib/types";
 import { FilterSidebar, FilterState } from "@/components/product/FilterSidebar";
@@ -8,7 +8,7 @@ import { SortBar } from "@/components/product/SortBar";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { SlidersHorizontal, ChevronRight, X } from "lucide-react";
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -42,7 +42,6 @@ export default function SearchPage() {
     inStockOnly: undefined,
   });
 
-  // Fetch products whenever filters or sort changes
   useEffect(() => {
     async function fetchProducts() {
       setLoading(true);
@@ -196,5 +195,19 @@ export default function SearchPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="p-12 text-center text-xs text-gray-500">
+          Loading BharatKart Catalog...
+        </div>
+      }
+    >
+      <SearchContent />
+    </Suspense>
   );
 }
