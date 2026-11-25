@@ -285,6 +285,11 @@ export const SEED_PRODUCTS: Product[] = [
         ],
       },
     ],
+    variants: [
+      { id: "s24-gray-256", name: "Titanium Gray - 256 GB", sku: "S24U-TG-256", price: 119999, originalPrice: 134999, stock: 28, color: "Titanium Gray", storage: "256 GB" },
+      { id: "s24-gray-512", name: "Titanium Gray - 512 GB", sku: "S24U-TG-512", price: 129999, originalPrice: 144999, stock: 15, color: "Titanium Gray", storage: "512 GB" },
+      { id: "s24-black-256", name: "Titanium Black - 256 GB", sku: "S24U-TB-256", price: 119999, originalPrice: 134999, stock: 20, color: "Titanium Black", storage: "256 GB" },
+    ],
     seller: SEED_SELLERS[0],
     bankOffers: [
       "Bank Offer: ₹6,000 Instant Discount on ICICI Bank Cards",
@@ -331,6 +336,11 @@ export const SEED_PRODUCTS: Product[] = [
           { key: "Noise Cancellation", value: "Auto NC Optimizer" },
         ],
       },
+    ],
+    variants: [
+      { id: "sony-black", name: "Black", sku: "WHXM5-BLK", price: 24990, originalPrice: 34990, stock: 35, color: "Black" },
+      { id: "sony-silver", name: "Platinum Silver", sku: "WHXM5-SLV", price: 24990, originalPrice: 34990, stock: 22, color: "Platinum Silver" },
+      { id: "sony-blue", name: "Midnight Blue", sku: "WHXM5-BLU", price: 26990, originalPrice: 34990, stock: 14, color: "Midnight Blue" },
     ],
     seller: SEED_SELLERS[1],
     bankOffers: [
@@ -379,6 +389,11 @@ export const SEED_PRODUCTS: Product[] = [
         ],
       },
     ],
+    variants: [
+      { id: "mba-mid-512", name: "Midnight - 512 GB SSD", sku: "MBA-M3-MID-512", price: 124900, originalPrice: 134900, stock: 20, color: "Midnight", storage: "512 GB" },
+      { id: "mba-slv-512", name: "Silver - 512 GB SSD", sku: "MBA-M3-SLV-512", price: 124900, originalPrice: 134900, stock: 15, color: "Silver", storage: "512 GB" },
+      { id: "mba-star-512", name: "Starlight - 512 GB SSD", sku: "MBA-M3-STR-512", price: 124900, originalPrice: 134900, stock: 12, color: "Starlight", storage: "512 GB" },
+    ],
     seller: SEED_SELLERS[0],
     bankOffers: [
       "Bank Offer: ₹5,000 Instant Discount on SBI Credit Card",
@@ -425,6 +440,10 @@ export const SEED_PRODUCTS: Product[] = [
           { key: "HDR", value: "Cinema HDR, Dolby Vision, HDR10 Pro" },
         ],
       },
+    ],
+    variants: [
+      { id: "lg-55-c3", name: "55 Inch (139 cm)", sku: "OLED55C3", price: 114990, originalPrice: 179990, stock: 12, size: "55 Inch" },
+      { id: "lg-65-c3", name: "65 Inch (164 cm)", sku: "OLED65C3", price: 169990, originalPrice: 239990, stock: 8, size: "65 Inch" },
     ],
     seller: SEED_SELLERS[1],
     bankOffers: [
@@ -831,6 +850,12 @@ export const SEED_PRODUCTS: Product[] = [
     ],
     specifications: [
       { category: "Fit & Fabric", items: [{ key: "Fit", value: "Slim Fit" }, { key: "Rise", value: "Mid Rise" }] },
+    ],
+    variants: [
+      { id: "lev-30", name: "30 Waist", sku: "LEV-511-30", price: 2499, originalPrice: 4299, stock: 15, size: "30" },
+      { id: "lev-32", name: "32 Waist", sku: "LEV-511-32", price: 2499, originalPrice: 4299, stock: 24, size: "32" },
+      { id: "lev-34", name: "34 Waist", sku: "LEV-511-34", price: 2499, originalPrice: 4299, stock: 18, size: "34" },
+      { id: "lev-36", name: "36 Waist", sku: "LEV-511-36", price: 2499, originalPrice: 4299, stock: 9, size: "36" },
     ],
     seller: SEED_SELLERS[2],
     bankOffers: ["Buy 2 get extra 10% off"],

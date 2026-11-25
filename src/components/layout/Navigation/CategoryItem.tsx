@@ -50,7 +50,7 @@ export function CategoryItem({
       onMouseLeave={onMouseLeave}
     >
       <Link
-        href={`/search?category=${category.slug}`}
+        href={`/category/${category.slug}`}
         className="flex flex-col items-center justify-center px-2 sm:px-3 py-1 group-hover:text-blue-600 transition-colors select-none"
       >
         <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-1">
