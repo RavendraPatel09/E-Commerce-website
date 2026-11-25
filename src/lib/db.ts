@@ -1313,6 +1313,13 @@ class MarketplaceDatabase {
     return this.categories;
   }
 
+  getCategoryBySlug(slug: string): Category | undefined {
+    const s = slug.toLowerCase().trim();
+    return this.categories.find(
+      (c) => c.slug.toLowerCase() === s || c.id.toLowerCase() === s || c.name.toLowerCase() === s
+    );
+  }
+
   // BANNERS
   getAllBanners(): PromotionalBanner[] {
     return this.banners.filter((b) => b.active);

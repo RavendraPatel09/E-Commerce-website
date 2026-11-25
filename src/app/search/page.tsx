@@ -6,6 +6,7 @@ import { Product } from "@/lib/types";
 import { FilterSidebar, FilterState } from "@/components/product/FilterSidebar";
 import { SortBar } from "@/components/product/SortBar";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { Pagination } from "@/components/product/Pagination";
 import { SlidersHorizontal, ChevronRight, X } from "lucide-react";
 
 function SearchContent() {
@@ -20,6 +21,7 @@ function SearchContent() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
   const [facets, setFacets] = useState<{ brands: string[]; priceRange: { min: number; max: number } }>({
     brands: [],
     priceRange: { min: 0, max: 200000 },
@@ -59,13 +61,14 @@ function SearchContent() {
         if (filters.inStockOnly) params.set("inStockOnly", "true");
         params.set("sort", sort);
         params.set("page", page.toString());
-        params.set("limit", "16");
+        params.set("limit", "12");
 
         const res = await fetch(`/api/products?${params.toString()}`);
         const data = await res.json();
         if (data.success) {
           setProducts(data.products);
           setTotal(data.total);
+          setTotalPages(data.totalPages || 1);
           if (data.facets) setFacets(data.facets);
         }
       } catch (err) {
@@ -190,7 +193,14 @@ function SearchContent() {
               ))}
             </div>
           ) : (
-            <ProductGrid products={products} onClearFilters={handleClearFilters} />
+            <>
+              <ProductGrid products={products} onClearFilters={handleClearFilters} />
+              <Pagination
+                currentPage={page}
+                totalPages={totalPages}
+                onPageChange={(p) => setPage(p)}
+              />
+            </>
           )}
         </div>
       </div>
