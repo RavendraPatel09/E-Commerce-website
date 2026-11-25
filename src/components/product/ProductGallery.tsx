@@ -75,7 +75,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
 
         {/* Main Image with Zoom: Top on mobile, right on desktop */}
         <div
-          className="order-1 md:order-2 relative w-full flex-1 h-[320px] sm:h-[380px] md:h-[460px] border border-gray-200 rounded-sm bg-white overflow-hidden cursor-crosshair flex items-center justify-center p-4"
+          className="order-1 md:order-2 relative w-full h-[320px] sm:h-[380px] md:h-[460px] md:flex-1 shrink-0 border border-gray-200 rounded-sm bg-white overflow-hidden cursor-crosshair flex items-center justify-center p-4"
           onMouseEnter={() => setIsZoomed(true)}
           onMouseLeave={() => setIsZoomed(false)}
           onMouseMove={handleMouseMove}
@@ -84,7 +84,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
             <WishlistButton product={product} />
           </div>
 
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full min-h-[260px]">
             <Image
               src={selectedImage}
               alt={product.title}
