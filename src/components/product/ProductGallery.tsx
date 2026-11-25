@@ -63,7 +63,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
 
         {/* Main Image with Zoom */}
         <div
-          className="relative flex-1 h-[360px] md:h-[460px] border border-gray-200 rounded-sm bg-white overflow-hidden cursor-crosshair flex items-center justify-center p-4"
+          className="relative flex-1 min-h-[320px] md:min-h-[440px] h-[360px] md:h-[460px] border border-gray-200 rounded-sm bg-white overflow-hidden cursor-crosshair flex items-center justify-center p-4"
           onMouseEnter={() => setIsZoomed(true)}
           onMouseLeave={() => setIsZoomed(false)}
           onMouseMove={handleMouseMove}

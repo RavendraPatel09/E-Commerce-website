@@ -514,6 +514,7 @@ export const SEED_PRODUCTS: Product[] = [
     thumbnail: "https://images.unsplash.com/photo-1580481077195-c3a821a58875?auto=format&fit=crop&w=800&q=80",
     images: [
       "https://images.unsplash.com/photo-1580481077195-c3a821a58875?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80",
     ],
     inStock: true,
     stockCount: 45,

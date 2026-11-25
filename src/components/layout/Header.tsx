@@ -17,26 +17,26 @@ import {
 } from "lucide-react";
 
 export function Header() {
-  const { totalItems, setIsCartDrawerOpen } = useCart();
+  const { totalItems } = useCart();
   const { user, setIsLoginModalOpen } = useAuth();
   const [isAccountOpen, setIsAccountOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-[#2874f0] shadow-md w-full">
-      <div className="max-w-[1360px] mx-auto px-4 h-14 flex items-center justify-between gap-4">
+      <div className="max-w-[1360px] mx-auto px-2 sm:px-4 h-14 flex items-center justify-between gap-2 sm:gap-4">
         {/* Left: Brand Logo */}
         <div className="flex flex-col shrink-0">
           <Link href="/" className="leading-tight group">
-            <span className="text-xl md:text-2xl font-black italic tracking-wide text-white flex items-center gap-1">
+            <span className="text-base sm:text-2xl font-black italic tracking-wide text-white flex items-center gap-0.5 sm:gap-1">
               BharatKart
-              <span className="w-2 h-2 rounded-full bg-[#ffe11b]" />
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#ffe11b]" />
             </span>
-            <div className="flex items-center gap-1 -mt-1 text-[11px] text-gray-200 group-hover:text-white transition-colors">
+            <div className="flex items-center gap-1 -mt-1 text-[9px] sm:text-[11px] text-gray-200 group-hover:text-white transition-colors">
               <span className="italic">Explore</span>
               <span className="font-bold text-[#ffe11b] italic flex items-center gap-0.5">
                 Plus
-                <svg className="w-2.5 h-2.5 fill-[#ffe11b]" viewBox="0 0 24 24">
+                <svg className="w-2 sm:w-2.5 h-2 sm:h-2.5 fill-[#ffe11b]" viewBox="0 0 24 24">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
               </span>
@@ -45,12 +45,12 @@ export function Header() {
         </div>
 
         {/* Center: Search Bar */}
-        <div className="flex-1 max-w-[620px] mx-2">
+        <div className="flex-1 min-w-[120px] max-w-[620px] mx-1 sm:mx-2">
           <SearchBar />
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-4 md:gap-7 shrink-0 text-white">
+        <div className="flex items-center gap-2 sm:gap-4 md:gap-7 shrink-0 text-white">
           {/* Login / Account Button with Dropdown */}
           <div
             className="relative"
@@ -60,15 +60,15 @@ export function Header() {
             {user ? (
               <button
                 onClick={() => setIsAccountOpen((prev) => !prev)}
-                className="flex items-center gap-1 text-[15px] font-semibold text-white hover:text-yellow-200 py-1"
+                className="flex items-center gap-0.5 sm:gap-1 text-xs sm:text-[15px] font-semibold text-white hover:text-yellow-200 py-1"
               >
-                <span className="max-w-[90px] truncate">{user.name.split(" ")[0]}</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isAccountOpen ? "rotate-180" : ""}`} />
+                <span className="max-w-[60px] sm:max-w-[90px] truncate">{user.name.split(" ")[0]}</span>
+                <ChevronDown className={`w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform ${isAccountOpen ? "rotate-180" : ""}`} />
               </button>
             ) : (
               <button
                 onClick={() => setIsLoginModalOpen(true)}
-                className="bg-white text-[#2874f0] font-bold text-sm px-7 py-1 rounded-sm shadow-sm hover:bg-gray-50 transition-colors"
+                className="bg-white text-[#2874f0] font-bold text-xs sm:text-sm px-3 sm:px-7 py-1 rounded-sm shadow-sm hover:bg-gray-50 transition-colors"
               >
                 Login
               </button>
@@ -138,12 +138,12 @@ export function Header() {
           {/* Cart Button */}
           <Link
             href="/cart"
-            className="flex items-center gap-2 text-[14px] font-semibold text-white hover:text-yellow-200 transition-colors relative"
+            className="flex items-center gap-1 sm:gap-2 text-xs sm:text-[14px] font-semibold text-white hover:text-yellow-200 transition-colors relative"
           >
             <div className="relative">
-              <ShoppingCart className="w-5 h-5" />
+              <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
               {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-[#ff6161] text-white text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#2874f0]">
+                <span className="absolute -top-2 -right-2 bg-[#ff6161] text-white text-[9px] sm:text-[10px] font-black w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full flex items-center justify-center border-2 border-[#2874f0]">
                   {totalItems}
                 </span>
               )}

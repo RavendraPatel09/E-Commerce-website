@@ -11,6 +11,7 @@ export function SearchBar() {
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -27,12 +28,13 @@ export function SearchBar() {
   useEffect(() => {
     if (!query.trim()) {
       setSuggestions([]);
+      setIsOpen(false);
       return;
     }
 
     const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/search/suggestions?q=${encodeURIComponent(query)}`);
+        const res = await fetch(`/api/search/suggestions?q=${encodeURIComponent(query.trim())}`);
         const data = await res.json();
         if (data.success && data.suggestions) {
           setSuggestions(data.suggestions);
@@ -50,12 +52,14 @@ export function SearchBar() {
     e.preventDefault();
     if (query.trim()) {
       setIsOpen(false);
+      if (inputRef.current) inputRef.current.blur();
       router.push(`/search?search=${encodeURIComponent(query.trim())}`);
     }
   };
 
   const handleSelectSuggestion = (item: any) => {
     setIsOpen(false);
+    if (inputRef.current) inputRef.current.blur();
     if (item.link) {
       router.push(item.link);
     } else {
@@ -68,6 +72,7 @@ export function SearchBar() {
     <div ref={containerRef} className="relative w-full max-w-[560px]">
       <form onSubmit={handleSubmit} className="relative flex items-center">
         <input
+          ref={inputRef}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -75,25 +80,28 @@ export function SearchBar() {
             if (suggestions.length > 0) setIsOpen(true);
           }}
           placeholder="Search for products, brands and more"
-          className="w-full bg-white text-gray-800 text-[14px] placeholder:text-gray-500 pl-4 pr-16 py-2 rounded-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-400"
+          className="w-full bg-white text-gray-800 text-xs sm:text-[14px] placeholder:text-gray-500 pl-3 sm:pl-4 pr-12 sm:pr-16 py-1.5 sm:py-2 rounded-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-400"
         />
 
         {query && (
           <button
             type="button"
-            onClick={() => setQuery("")}
-            className="absolute right-10 text-gray-400 hover:text-gray-600 p-1"
+            onClick={() => {
+              setQuery("");
+              setIsOpen(false);
+            }}
+            className="absolute right-9 sm:right-10 text-gray-400 hover:text-gray-600 p-1"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         )}
 
         <button
           type="submit"
-          className="absolute right-0 top-0 bottom-0 px-3.5 flex items-center justify-center text-blue-600 hover:text-blue-700"
+          className="absolute right-0 top-0 bottom-0 px-2.5 sm:px-3.5 flex items-center justify-center text-blue-600 hover:text-blue-700"
           title="Search"
         >
-          <Search className="w-5 h-5" />
+          <Search className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </form>
 

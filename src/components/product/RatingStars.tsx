@@ -25,7 +25,7 @@ export function RatingStars({ rating, count, reviewCount, size = "sm" }: RatingS
   const bgColor = rating >= 4.0 ? "bg-[#388e3c]" : rating >= 3.0 ? "bg-[#ff9f00]" : "bg-red-500";
 
   return (
-    <div className="inline-flex items-center gap-1.5">
+    <div className="inline-flex items-center gap-1.5 flex-wrap">
       <span
         className={`inline-flex items-center gap-0.5 font-bold text-white rounded-[3px] leading-none ${bgColor} ${sizeClasses[size]}`}
       >
@@ -35,8 +35,13 @@ export function RatingStars({ rating, count, reviewCount, size = "sm" }: RatingS
 
       {count !== undefined && (
         <span className="text-[12px] text-gray-500 font-medium">
-          ({count.toLocaleString("en-IN")}
-          {reviewCount !== undefined ? ` & ${reviewCount.toLocaleString("en-IN")} reviews` : ""})
+          {reviewCount !== undefined ? (
+            <span>
+              {count.toLocaleString("en-IN")} Ratings & {reviewCount.toLocaleString("en-IN")} Reviews
+            </span>
+          ) : (
+            <span>({count.toLocaleString("en-IN")})</span>
+          )}
         </span>
       )}
     </div>
