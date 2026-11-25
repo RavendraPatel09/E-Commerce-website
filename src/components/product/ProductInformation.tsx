@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Product } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
@@ -31,6 +31,18 @@ export function ProductInformation({ product }: ProductInformationProps) {
   });
   const [checkingPincode, setCheckingPincode] = useState(false);
   const [pincodeError, setPincodeError] = useState("");
+
+  // Record product in recently viewed localStorage
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("bharatkart_recently_viewed");
+      const list: string[] = raw ? JSON.parse(raw) : [];
+      const updated = [product.id, ...list.filter((id) => id !== product.id)].slice(0, 15);
+      localStorage.setItem("bharatkart_recently_viewed", JSON.stringify(updated));
+    } catch {
+      // Ignore if localStorage unavailable
+    }
+  }, [product.id]);
 
   const handleCheckPincode = async (e: React.FormEvent) => {
     e.preventDefault();
