@@ -126,15 +126,22 @@ export async function POST(request: NextRequest) {
     const validatedItems = items.map((item: any) => {
       const product = allProducts.find((p) => p.id === item.productId);
       const price = item.price || product?.price || 0;
-      const originalPrice = product?.originalPrice || price;
+      const originalPrice =
+        (item.variantId && product?.variants?.find((v: any) => v.id === item.variantId)?.originalPrice) ||
+        product?.originalPrice ||
+        price;
       const qty = item.quantity || 1;
 
       subtotal += price * qty;
-      discount += (originalPrice - price) * qty;
+      discount += Math.max(0, (originalPrice - price) * qty);
+
+      const displayTitle = item.variantName
+        ? `${product?.title || item.title} (${item.variantName})`
+        : item.title || product?.title || "Item";
 
       return {
         productId: item.productId,
-        title: item.title || product?.title || "Item",
+        title: displayTitle,
         brand: item.brand || product?.brand || "Brand",
         thumbnail: item.thumbnail || product?.thumbnail || "",
         variantName: item.variantName,

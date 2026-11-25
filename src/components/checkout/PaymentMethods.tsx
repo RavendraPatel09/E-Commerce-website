@@ -45,10 +45,6 @@ export function PaymentMethods({
   // Net banking
   const [selectedBank, setSelectedBank] = useState("sbi");
 
-  // COD captcha
-  const [captchaCode] = useState(() => Math.floor(100 + Math.random() * 900).toString());
-  const [enteredCaptcha, setEnteredCaptcha] = useState("");
-
   // Razorpay state
   const [razorpayError, setRazorpayError] = useState("");
   const [isRazorpayLoading, setIsRazorpayLoading] = useState(false);
@@ -401,28 +397,16 @@ export function PaymentMethods({
 
         {selectedMethod === "COD" && (
           <div className="mt-4 pt-3 border-t border-gray-200 space-y-3 pl-7 max-w-sm">
-            <p className="text-xs text-gray-500">
-              Please enter the characters shown below to confirm your Cash on Delivery order:
+            <p className="text-xs text-gray-600">
+              Pay via Cash or UPI to the delivery executive when your shipment arrives at your doorstep.
             </p>
-            <div className="flex items-center gap-3">
-              <span className="bg-gray-200 text-gray-900 font-mono font-black text-lg px-4 py-1.5 rounded tracking-widest border border-gray-400 select-none">
-                {captchaCode}
-              </span>
-              <input
-                type="text"
-                placeholder="Enter characters"
-                value={enteredCaptcha}
-                onChange={(e) => setEnteredCaptcha(e.target.value)}
-                className="w-32 p-2 border border-gray-300 rounded text-xs font-mono font-bold tracking-wider focus:outline-none focus:border-blue-600"
-              />
-            </div>
 
             <button
               onClick={() => onPlaceOrder()}
-              disabled={isProcessing || enteredCaptcha !== captchaCode}
+              disabled={isProcessing}
               className="mt-2 bg-[#fb641b] hover:bg-orange-600 disabled:opacity-40 text-white font-extrabold text-sm py-2.5 px-6 rounded-sm shadow transition-colors"
             >
-              {isProcessing ? "Confirming COD Order..." : "CONFIRM COD ORDER"}
+              {isProcessing ? "Confirming COD Order..." : "CONFIRM CASH ON DELIVERY ORDER"}
             </button>
           </div>
         )}

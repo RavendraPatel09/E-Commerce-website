@@ -3,16 +3,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
 import { formatINR } from "@/lib/utils";
+import { OrderActionButtons } from "@/components/orders/OrderActionButtons";
 import {
   CheckCircle2,
   Circle,
   Truck,
   Package,
-  FileText,
   MapPin,
   ChevronLeft,
-  RotateCcw,
-  HelpCircle,
 } from "lucide-react";
 
 interface OrderDetailPageProps {
@@ -140,31 +138,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
             ))}
           </div>
 
-          <div className="pt-4 border-t border-gray-100 flex flex-wrap gap-3">
-            <button
-              onClick={() => alert("Downloading official Tax Invoice PDF for order " + order.id)}
-              className="border border-gray-300 hover:bg-gray-50 text-gray-700 font-bold text-xs py-2 px-4 rounded-sm flex items-center gap-1.5 transition-colors"
-            >
-              <FileText className="w-4 h-4 text-blue-600" />
-              <span>Download Tax Invoice</span>
-            </button>
-
-            <button
-              onClick={() => alert("Return window is active for 7 days. Return request received.")}
-              className="border border-gray-300 hover:bg-gray-50 text-gray-700 font-bold text-xs py-2 px-4 rounded-sm flex items-center gap-1.5 transition-colors"
-            >
-              <RotateCcw className="w-4 h-4 text-orange-500" />
-              <span>Request Return / Exchange</span>
-            </button>
-
-            <button
-              onClick={() => alert("Connecting to 24x7 Customer Care advisor...")}
-              className="border border-gray-300 hover:bg-gray-50 text-gray-700 font-bold text-xs py-2 px-4 rounded-sm flex items-center gap-1.5 transition-colors"
-            >
-              <HelpCircle className="w-4 h-4 text-purple-600" />
-              <span>Need Help?</span>
-            </button>
-          </div>
+          <OrderActionButtons orderId={order.id} />
         </div>
 
         {/* Right: Address & Payment Summary */}

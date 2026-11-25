@@ -177,11 +177,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = cartItems.reduce((sum, item) => sum + item.selectedPrice * item.quantity, 0);
-  const originalTotal = cartItems.reduce(
-    (sum, item) => sum + (item.product.originalPrice || item.selectedPrice) * item.quantity,
-    0
-  );
-  const totalDiscount = originalTotal - subtotal;
+  const originalTotal = cartItems.reduce((sum, item) => {
+    const itemOriginalPrice =
+      (item.variantId && item.product.variants?.find((v) => v.id === item.variantId)?.originalPrice) ||
+      item.product.originalPrice ||
+      item.selectedPrice;
+    return sum + itemOriginalPrice * item.quantity;
+  }, 0);
+  const totalDiscount = Math.max(0, originalTotal - subtotal);
   const couponDiscount = appliedCoupon ? appliedCoupon.discount : 0;
   const finalTotal = Math.max(0, subtotal - couponDiscount);
 

@@ -396,7 +396,7 @@ export function CheckoutForm() {
 
           {activeStep !== 3 && (
             <span className="text-xs text-gray-500 font-medium">
-              {cartItems.length} items
+              {cartItems.length} {cartItems.length === 1 ? "item" : "items"}
             </span>
           )}
         </div>

@@ -21,8 +21,11 @@ export function CartItem({
   onRemove,
   onSaveForLater,
 }: CartItemProps) {
-  const { product, quantity, selectedPrice, variantName } = item;
-  const originalPrice = product.originalPrice || selectedPrice;
+  const { product, quantity, selectedPrice, variantName, variantId } = item;
+  const originalPrice =
+    (variantId && product.variants?.find((v) => v.id === variantId)?.originalPrice) ||
+    product.originalPrice ||
+    selectedPrice;
   const deliveryDate = getEstimatedDeliveryDate(product.fastestDeliveryDays || 2);
 
   return (
