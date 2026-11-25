@@ -53,7 +53,7 @@ export function PriceDetailsCard() {
       <div className="p-4 space-y-3.5 text-sm">
         {/* Price row */}
         <div className="flex justify-between">
-          <span className="text-gray-700">Price ({totalItems} items)</span>
+          <span className="text-gray-700">Price ({totalItems} {totalItems === 1 ? "item" : "items"})</span>
           <span className="font-medium">{formatINR(originalTotal)}</span>
         </div>
 

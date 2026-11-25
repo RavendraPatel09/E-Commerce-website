@@ -72,7 +72,7 @@ export default function CartPage() {
         <div className="bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden">
           <div className="p-4 border-b border-gray-100 flex items-center justify-between">
             <h1 className="text-base font-bold text-gray-900">
-              BharatKart Bag ({totalItems} items)
+              BharatKart Bag ({totalItems} {totalItems === 1 ? "item" : "items"})
             </h1>
           </div>
 
