@@ -130,6 +130,38 @@ export function FilterSidebar({
                 className="w-1/2 p-2 border border-gray-300 rounded text-xs focus:outline-none focus:border-blue-500"
               />
             </div>
+            {/* Quick Price Range Presets */}
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {[
+                { label: "Under ₹5K", min: 0, max: 5000 },
+                { label: "₹5K - ₹20K", min: 5000, max: 20000 },
+                { label: "₹20K - ₹60K", min: 20000, max: 60000 },
+                { label: "Above ₹60K", min: 60000, max: undefined },
+              ].map((p, idx) => {
+                const active = filters.minPrice === p.min && filters.maxPrice === p.max;
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => {
+                      if (active) {
+                        onChange({ ...filters, minPrice: undefined, maxPrice: undefined });
+                      } else {
+                        onChange({ ...filters, minPrice: p.min, maxPrice: p.max });
+                      }
+                    }}
+                    className={`text-[11px] px-2 py-1 rounded border transition-colors ${
+                      active
+                        ? "bg-blue-600 text-white border-blue-600 font-bold"
+                        : "bg-gray-50 hover:bg-gray-100 text-gray-700 border-gray-200"
+                    }`}
+                  >
+                    {p.label}
+                  </button>
+                );
+              })}
+            </div>
+
             <div className="flex items-center justify-between text-[11px] text-gray-400">
               <span>Min: {formatINR(priceRange.min || 0)}</span>
               <span>Max: {formatINR(priceRange.max || 150000)}</span>
