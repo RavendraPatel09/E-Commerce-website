@@ -29,7 +29,11 @@ export function ProductGallery({ product }: ProductGalleryProps) {
   };
 
   const handleAddToCart = () => {
-    addToCart(product, 1);
+    if (isInCart) {
+      router.push("/cart");
+    } else {
+      addToCart(product, 1);
+    }
   };
 
   const handleBuyNow = () => {

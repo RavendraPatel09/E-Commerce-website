@@ -152,7 +152,7 @@ export const SEED_PRODUCTS: Product[] = [
     thumbnail: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
     images: [
       "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1695048133202-b34e56598cfa?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=800&q=80",
     ],
     inStock: true,

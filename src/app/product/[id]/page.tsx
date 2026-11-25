@@ -30,7 +30,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
       <div className="bg-white border border-gray-200 rounded-sm p-4 md:p-6 shadow-sm">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Gallery & Action Buttons */}
-          <div className="lg:col-span-5 relative lg:sticky lg:top-20 z-10">
+          <div className="lg:col-span-5 relative lg:sticky lg:top-24 z-10">
             <ProductGallery product={product} />
           </div>
 

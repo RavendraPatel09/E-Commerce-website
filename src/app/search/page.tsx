@@ -108,7 +108,7 @@ function SearchContent() {
           <span onClick={() => router.push("/")} className="hover:text-blue-600 cursor-pointer">Home</span>
           <ChevronRight className="w-3 h-3" />
           <span className="text-gray-900 font-semibold">{pageTitle}</span>
-          <span className="text-gray-400">({total} items)</span>
+          <span className="text-gray-400">({total} {total === 1 ? "item" : "items"})</span>
         </div>
 
         {/* Mobile Filter Button */}
