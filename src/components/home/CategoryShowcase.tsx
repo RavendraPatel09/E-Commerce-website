@@ -23,7 +23,7 @@ const CATEGORY_TILES: CategoryTile[] = [
   },
   {
     name: "Electronics & Audio",
-    tagline: "Laptops, Noise Cancelling & Wearables",
+    tagline: "Laptops, Audio & Wearables",
     offer: "Up to 60% Off",
     imageUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=360&q=80",
     href: "/search?category=electronics",
@@ -31,7 +31,7 @@ const CATEGORY_TILES: CategoryTile[] = [
   },
   {
     name: "Fashion & Lifestyle",
-    tagline: "Jordan Retro, Denim & Watches",
+    tagline: "Sneakers, Denim & Watches",
     offer: "Min 40% Off",
     imageUrl: "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=360&q=80",
     href: "/search?category=fashion",
@@ -41,27 +41,27 @@ const CATEGORY_TILES: CategoryTile[] = [
     name: "Home & Furniture",
     tagline: "Solid Sheesham & Ortho Mattresses",
     offer: "From ₹1,499",
-    imageUrl: "https://images.unsplash.com/photo-1580481077195-c3ef67319985?auto=format&fit=crop&w=360&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=360&q=80",
     href: "/search?category=home-furniture",
     badge: "Top Choice",
   },
   {
     name: "TVs & Appliances",
-    tagline: "OLED Smart TVs & AI Refrigerators",
+    tagline: "OLED Smart TVs & Refrigerators",
     offer: "Up to 45% Off",
     imageUrl: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=360&q=80",
     href: "/search?category=appliances",
   },
   {
-    name: "Beauty & Personal Care",
-    tagline: "Ayurveda, Grooming & Fragrances",
+    name: "Beauty & Grooming",
+    tagline: "Ayurveda, Grooming & Scents",
     offer: "From ₹399",
     imageUrl: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=360&q=80",
     href: "/search?category=beauty",
   },
   {
     name: "Grocery & Gourmet",
-    tagline: "Artisan Teas, Nuts & Daily Staples",
+    tagline: "Artisan Teas, Nuts & Staples",
     offer: "Min 25% Off",
     imageUrl: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=360&q=80",
     href: "/search?category=grocery",
@@ -96,25 +96,32 @@ export function CategoryShowcase() {
         </Link>
       </div>
 
-      {/* Grid of 4 cols on mobile, 8 cols on desktop */}
+      {/* Grid of 2 cols on mobile, 4 on tablet, 8 on desktop */}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
         {CATEGORY_TILES.map((tile, idx) => (
           <Link
             key={idx}
             href={tile.href}
-            className="group relative flex flex-col items-center bg-gray-50/70 hover:bg-blue-50/40 border border-gray-100 hover:border-blue-300 rounded-sm p-3 transition-all duration-200 text-center hover:shadow-sm"
+            className="group relative flex flex-col items-center bg-gray-50/70 hover:bg-blue-50/40 border border-gray-100 hover:border-blue-300 rounded-sm p-2.5 transition-all duration-200 text-center hover:shadow-sm"
           >
-            {tile.badge && (
-              <span className="absolute top-1.5 right-1.5 text-[9px] font-black uppercase tracking-wider bg-amber-400 text-gray-950 px-1 py-0.5 rounded-[2px] shadow-2xs">
-                {tile.badge}
-              </span>
-            )}
+            {/* Top Badge Slot (Clean non-overlapping height) */}
+            <div className="h-5 mb-1.5 flex items-center justify-center">
+              {tile.badge ? (
+                <span className="text-[9px] font-black uppercase tracking-wider bg-amber-400 text-gray-950 px-1.5 py-0.5 rounded-[2px] shadow-2xs">
+                  {tile.badge}
+                </span>
+              ) : (
+                <span className="h-4" />
+              )}
+            </div>
 
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 mb-2 overflow-hidden rounded-full border-2 border-white shadow-2xs bg-white">
+            {/* Circular Category Thumbnail */}
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 mb-2 overflow-hidden rounded-full border-2 border-white shadow-xs bg-gray-100">
               <Image
                 src={tile.imageUrl}
                 alt={tile.name}
                 fill
+                sizes="(max-width: 640px) 64px, 80px"
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
               />
             </div>
