@@ -438,7 +438,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex gap-2 overflow-x-auto scrollbar-none border-b border-gray-200 pb-2 text-xs font-bold">
+      <div className="flex flex-wrap gap-2 border-b border-gray-200 pb-2 text-xs font-bold">
         {[
           { id: "overview", label: "Overview Metrics", icon: TrendingUp },
           {

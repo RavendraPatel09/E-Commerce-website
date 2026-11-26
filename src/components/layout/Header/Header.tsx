@@ -35,7 +35,7 @@ export function Header() {
           </div>
 
           {/* Center: Search Bar */}
-          <div className="flex-1 min-w-[120px] max-w-[620px] mx-1 sm:mx-2">
+          <div className="flex-1 min-w-[80px] sm:min-w-[140px] max-w-[620px] mx-1 sm:mx-2">
             <SearchBar />
           </div>
 

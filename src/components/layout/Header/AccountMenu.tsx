@@ -19,8 +19,11 @@ export function AccountMenu() {
         <button
           onClick={() => setIsOpen((prev) => !prev)}
           className="flex items-center gap-1 text-xs sm:text-[15px] font-semibold text-white hover:text-yellow-200 py-1 transition-colors select-none"
+          title={user.name}
+          aria-label="User Account Menu"
         >
-          <span className="max-w-[70px] sm:max-w-[100px] truncate">{user.name.split(" ")[0]}</span>
+          <User className="w-4 h-4 sm:hidden shrink-0" />
+          <span className="hidden sm:inline max-w-[100px] truncate">{user.name.split(" ")[0]}</span>
           <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-150 ${isOpen ? "rotate-180" : ""}`} />
         </button>
       ) : (

@@ -1890,13 +1890,42 @@ class MarketplaceDatabase {
     if (trackingNumber) item.trackingNumber = trackingNumber;
     if (courierPartner) item.courierPartner = courierPartner;
 
-    // If all items in this order have progressed, update master order status
+    // If all items in this order have progressed, update master order status and tracking timeline
     const allDelivered = order.items.every((i) => i.status === "DELIVERED");
     const allShipped = order.items.every((i) => i.status === "SHIPPED" || i.status === "DELIVERED");
+    let newMasterStatus: Order["currentStatus"] | null = null;
     if (allDelivered) {
-      order.currentStatus = "Delivered";
+      newMasterStatus = "Delivered";
     } else if (allShipped) {
-      order.currentStatus = "Shipped";
+      newMasterStatus = "Shipped";
+    }
+
+    if (newMasterStatus) {
+      order.currentStatus = newMasterStatus;
+      const statusOrder: Order["currentStatus"][] = [
+        "Ordered",
+        "Order Confirmed",
+        "Shipped",
+        "Out For Delivery",
+        "Delivered",
+      ];
+      const targetIdx = statusOrder.indexOf(newMasterStatus);
+      order.trackingSteps = order.trackingSteps.map((step) => {
+        const stepIdx = statusOrder.indexOf(step.status);
+        if (stepIdx <= targetIdx && stepIdx !== -1) {
+          let desc = step.description;
+          if (step.status === "Shipped" && trackingNumber) {
+            desc = `Dispatched via ${courierPartner || "BlueDart Express"} (${trackingNumber})`;
+          }
+          return {
+            ...step,
+            completed: true,
+            date: step.completed ? step.date : "Today, just now",
+            description: desc,
+          };
+        }
+        return step;
+      });
     }
 
     this.persist();
