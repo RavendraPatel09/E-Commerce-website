@@ -11,6 +11,7 @@ import {
   Refund,
 } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
+import { useAuth } from "@/context/AuthContext";
 import { RolePersonaBar } from "@/components/common/RolePersonaBar";
 import {
   TrendingUp,
@@ -39,6 +40,7 @@ import {
 } from "lucide-react";
 
 export default function AdminDashboardPage() {
+  const { user, switchPersona } = useAuth();
   const [activeTab, setActiveTab] = useState<
     | "overview"
     | "sellers"
@@ -383,6 +385,29 @@ export default function AdminDashboardPage() {
   return (
     <div className="space-y-6">
       <RolePersonaBar />
+
+      {/* Role Access Notice */}
+      {user?.role !== "admin" && (
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
+          <div className="flex items-center gap-3">
+            <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />
+            <div>
+              <p className="text-sm font-bold text-amber-900">
+                Restricted Access: Administrator Privileges Required
+              </p>
+              <p className="text-xs text-amber-700">
+                You are currently viewing as <strong>{user?.name || "Customer"}</strong> ({user?.role || "customer"}). Switch to Administrator to perform master governance actions.
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => switchPersona("admin")}
+            className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-4 py-2 rounded-sm shrink-0 transition-colors shadow-sm"
+          >
+            Switch to Administrator Persona
+          </button>
+        </div>
+      )}
 
       {/* Top Header Card */}
       <div className="bg-white border border-gray-200 rounded-sm p-4 md:p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">

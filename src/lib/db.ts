@@ -1899,6 +1899,7 @@ class MarketplaceDatabase {
       order.currentStatus = "Shipped";
     }
 
+    this.persist();
     return true;
   }
 
@@ -1950,6 +1951,7 @@ class MarketplaceDatabase {
     });
 
     this.orders.unshift(newOrder);
+    this.persist();
     return newOrder;
   }
 
@@ -1977,6 +1979,7 @@ class MarketplaceDatabase {
       });
     }
 
+    this.persist();
     return order;
   }
 
@@ -2011,6 +2014,7 @@ class MarketplaceDatabase {
       createdAt: new Date().toISOString(),
     };
     this.sellers.push(newSeller);
+    this.persist();
     return newSeller;
   }
 
@@ -2019,6 +2023,7 @@ class MarketplaceDatabase {
     if (!seller) return null;
     seller.status = status;
     if (reason) seller.rejectionReason = reason;
+    this.persist();
     return seller;
   }
 
@@ -2026,6 +2031,7 @@ class MarketplaceDatabase {
     const index = this.sellers.findIndex((s) => s.id === id);
     if (index === -1) return null;
     this.sellers[index] = { ...this.sellers[index], ...updates };
+    this.persist();
     return this.sellers[index];
   }
 
@@ -2090,6 +2096,7 @@ class MarketplaceDatabase {
       createdAt: new Date().toISOString(),
     };
     this.payouts.unshift(newPayout);
+    this.persist();
     return newPayout;
   }
 
@@ -2099,6 +2106,7 @@ class MarketplaceDatabase {
     payout.status = "PAID";
     payout.utr = utr;
     payout.processedAt = new Date().toISOString();
+    this.persist();
     return payout;
   }
 
@@ -2118,6 +2126,7 @@ class MarketplaceDatabase {
       updatedAt: new Date().toISOString(),
     };
     this.refunds.unshift(newRefund);
+    this.persist();
     return newRefund;
   }
 
@@ -2127,16 +2136,17 @@ class MarketplaceDatabase {
     refund.status = status;
     if (reason) refund.rejectionReason = reason;
     refund.updatedAt = new Date().toISOString();
+    this.persist();
     return refund;
   }
 }
 
-// Global singleton instance
+// Global singleton instance across serverless chunks and development/production
 declare global {
   var __dbInstance: MarketplaceDatabase | undefined;
 }
 
-export const db = global.__dbInstance || new MarketplaceDatabase();
-if (process.env.NODE_ENV !== "production") {
-  global.__dbInstance = db;
+if (!global.__dbInstance) {
+  global.__dbInstance = new MarketplaceDatabase();
 }
+export const db = global.__dbInstance;
