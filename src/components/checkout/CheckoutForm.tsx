@@ -426,7 +426,7 @@ export function CheckoutForm() {
 
                   <div className="text-right text-xs">
                     <p className="text-gray-600">
-                      Delivery by {getEstimatedDeliveryDate(item.product.fastestDeliveryDays || 2)}
+                      Est. Delivery by {getEstimatedDeliveryDate(item.product.fastestDeliveryDays || 2)}
                     </p>
                     <span className="text-green-700 font-bold">FREE Delivery</span>
                   </div>

@@ -55,6 +55,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // 1b. Duplicate Payment & Order Prevention (Idempotency check)
+    const existingOrders = db.getAllOrders();
+    if (razorpayPaymentId) {
+      const duplicatePaymentOrder = existingOrders.find((o) => o.paymentId === razorpayPaymentId);
+      if (duplicatePaymentOrder) {
+        return NextResponse.json(
+          {
+            success: true,
+            order: duplicatePaymentOrder,
+            message: "Order already confirmed for this payment transaction.",
+          },
+          { status: 200 }
+        );
+      }
+    }
+
     // 2. Strict Inventory Validation
     const allProducts = db.getAllProducts();
     for (const item of items) {

@@ -110,7 +110,7 @@ export function CartItem({
       <div className="flex flex-row sm:flex-col justify-between sm:items-end gap-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-gray-100">
         <div className="text-left sm:text-right text-xs">
           <p className="text-gray-800">
-            Delivery by <strong className="font-bold">{deliveryDate}</strong>
+            Est. Delivery by <strong className="font-bold">{deliveryDate}</strong>
           </p>
           <p className="text-[#388e3c] font-semibold text-[11px]">Free Delivery</p>
         </div>
