@@ -37,6 +37,15 @@ export function MoreMenu({ className = "" }: MoreMenuProps) {
           </Link>
 
           <Link
+            href="/seller/dashboard"
+            className="flex items-center gap-3 px-4 py-2 hover:bg-amber-50 text-amber-800 font-bold"
+            onClick={() => setIsOpen(false)}
+          >
+            <TrendingUp className="w-4 h-4 text-amber-600" />
+            <span>Seller Hub Dashboard</span>
+          </Link>
+
+          <Link
             href="/admin"
             className="flex items-center gap-3 px-4 py-2 hover:bg-blue-50 text-blue-700 font-bold"
             onClick={() => setIsOpen(false)}

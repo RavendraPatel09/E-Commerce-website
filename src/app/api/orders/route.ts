@@ -147,8 +147,8 @@ export async function POST(request: NextRequest) {
         variantName: item.variantName,
         quantity: qty,
         price,
-        sellerId: product?.seller.id || "seller-retailnet",
-        sellerName: product?.seller.name || "RetailNet SuperStore",
+        sellerId: product?.seller?.id || product?.sellerId || "seller-retailnet",
+        sellerName: product?.seller?.name || (product?.sellerId ? db.getSellerById(product.sellerId)?.name : "RetailNet SuperStore") || "RetailNet SuperStore",
       };
     });
 
@@ -172,18 +172,7 @@ export async function POST(request: NextRequest) {
     const totalAmount = Math.max(0, subtotal - couponDiscount + deliveryFee);
     const expectedDelivery = getEstimatedDeliveryDate(2);
 
-    // 6. Deduct Inventory upon successful order confirmation
-    for (const item of items) {
-      const product = allProducts.find((p) => p.id === item.productId);
-      if (product) {
-        product.stockCount = Math.max(0, product.stockCount - (item.quantity || 1));
-        if (product.stockCount === 0) {
-          product.inStock = false;
-        }
-      }
-    }
-
-    // 7. Persist Order
+    // 6. Persist Order (inventory deduction is handled atomically inside db.createOrder)
     const order = db.createOrder({
       userId,
       customerName: customerName || shippingAddress.fullName,

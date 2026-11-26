@@ -20,7 +20,20 @@ export async function GET(request: NextRequest) {
     const page = Math.max(1, Number(searchParams.get("page")) || 1);
     const limit = Math.max(1, Number(searchParams.get("limit")) || 12);
 
-    let all = db.getAllProducts();
+    const includeUnapproved = searchParams.get("admin") === "true";
+    const sellerId = searchParams.get("sellerId");
+    const approvalStatus = searchParams.get("approvalStatus");
+
+    let all: Product[];
+    if (sellerId) {
+      all = db.getSellerProducts(sellerId);
+    } else {
+      all = db.getAllProducts(includeUnapproved);
+    }
+
+    if (approvalStatus) {
+      all = all.filter((p) => p.approvalStatus === approvalStatus);
+    }
 
     // 1. Full-text search
     if (search) {
@@ -143,6 +156,10 @@ export async function POST(request: NextRequest) {
 
     const originalPrice = body.originalPrice || body.price;
     const discount = Math.round(((originalPrice - body.price) / originalPrice) * 100);
+    const sellerId = body.sellerId || (body.seller && body.seller.id) || "seller-retailnet";
+    const matchedSeller = db.getSellerById(sellerId);
+
+    const isPendingApproval = body.isSellerSubmission !== false && body.approvalStatus !== "APPROVED";
 
     const product = db.addProduct({
       title: body.title,
@@ -165,19 +182,67 @@ export async function POST(request: NextRequest) {
       specifications: body.specifications || [
         { category: "General", items: [{ key: "Brand", value: body.brand }] },
       ],
-      seller: body.seller || {
-        id: "seller-custom",
-        name: body.sellerName || "Registered Partner Seller",
-        rating: 4.7,
-        joinedYear: 2024,
-        city: "Bengaluru",
-        state: "Karnataka",
-        badge: "Verified Partner",
-      },
+      seller: matchedSeller
+        ? {
+            id: matchedSeller.id,
+            name: matchedSeller.name,
+            rating: matchedSeller.rating,
+            joinedYear: matchedSeller.joinedYear,
+            city: matchedSeller.city,
+            state: matchedSeller.state,
+            badge: matchedSeller.badge,
+          }
+        : body.seller || {
+            id: sellerId,
+            name: body.sellerName || "Registered Partner Seller",
+            rating: 4.7,
+            joinedYear: 2024,
+            city: "Bengaluru",
+            state: "Karnataka",
+            badge: "Verified Partner",
+          },
+      sellerId,
+      approvalStatus: isPendingApproval ? "PENDING_APPROVAL" : "APPROVED",
       fastestDeliveryDays: 2,
     });
 
     return NextResponse.json({ success: true, product }, { status: 201 });
+  } catch (error: any) {
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  }
+}
+
+export async function PUT(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const { id, action, status, reason, stockCount, inStock, price } = body;
+
+    if (!id) {
+      return NextResponse.json({ success: false, error: "Product id is required" }, { status: 400 });
+    }
+
+    if (action === "approve" || action === "reject" || status) {
+      const approvalState = action === "approve" ? "APPROVED" : action === "reject" ? "REJECTED" : status;
+      const updated = db.approveProduct(id, approvalState, reason);
+      if (!updated) {
+        return NextResponse.json({ success: false, error: "Product not found" }, { status: 404 });
+      }
+      return NextResponse.json({ success: true, product: updated });
+    }
+
+    if (stockCount !== undefined || inStock !== undefined || price !== undefined) {
+      const updated = db.updateProductStock(id, stockCount, inStock, price);
+      if (!updated) {
+        return NextResponse.json({ success: false, error: "Product not found" }, { status: 404 });
+      }
+      return NextResponse.json({ success: true, product: updated });
+    }
+
+    const updated = db.updateProduct(id, body);
+    if (!updated) {
+      return NextResponse.json({ success: false, error: "Product not found" }, { status: 404 });
+    }
+    return NextResponse.json({ success: true, product: updated });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }

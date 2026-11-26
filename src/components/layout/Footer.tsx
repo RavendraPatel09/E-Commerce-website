@@ -28,9 +28,9 @@ export function Footer() {
               Group Brands
             </h4>
             <ul className="space-y-1.5 text-gray-300">
-              <li><a href="#" className="hover:underline">Myntra Fashion</a></li>
-              <li><a href="#" className="hover:underline">Cleartrip Travel</a></li>
-              <li><a href="#" className="hover:underline">Shopsy Hyperlocal</a></li>
+              <li><Link href="/category/fashion" className="hover:underline">Myntra Fashion</Link></li>
+              <li><Link href="/category/travel" className="hover:underline">Cleartrip Travel</Link></li>
+              <li><Link href="/category/grocery" className="hover:underline">Shopsy Hyperlocal</Link></li>
             </ul>
           </div>
 

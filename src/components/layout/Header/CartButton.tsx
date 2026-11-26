@@ -15,7 +15,7 @@ export function CartButton({ className = "" }: CartButtonProps) {
   return (
     <Link
       href="/cart"
-      className={`flex items-center gap-1.5 sm:gap-2 text-xs sm:text-[14px] font-semibold text-white hover:text-yellow-200 transition-colors relative select-none ${className}`}
+      className={`flex items-center gap-1.5 sm:gap-2 text-xs sm:text-[14px] font-semibold text-white hover:text-yellow-200 transition-colors relative select-none pr-1.5 sm:pr-0 ${className}`}
       title="View Shopping Cart"
     >
       <div className="relative">

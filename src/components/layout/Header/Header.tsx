@@ -16,7 +16,7 @@ export function Header() {
   return (
     <>
       <header className="sticky top-0 z-40 bg-[#2874f0] shadow-md w-full">
-        <div className="max-w-[1360px] mx-auto px-2 sm:px-4 h-14 flex items-center justify-between gap-2 sm:gap-4">
+        <div className="max-w-[1360px] mx-auto px-3 sm:px-4 h-14 flex items-center justify-between gap-2 sm:gap-4">
           {/* Mobile Hamburger Button */}
           <div className="flex items-center gap-1 md:hidden">
             <button

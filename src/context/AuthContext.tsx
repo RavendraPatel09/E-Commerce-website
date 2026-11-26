@@ -6,8 +6,9 @@ import { User, Address } from "@/lib/types";
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
-  login: (phoneOrEmail: string, role?: "customer" | "seller" | "admin") => void;
+  login: (phoneOrEmail: string, role?: "customer" | "seller" | "admin", sellerId?: string) => void;
   logout: () => void;
+  switchPersona: (role: "customer" | "seller" | "admin", sellerId?: string) => void;
   addresses: Address[];
   addAddress: (address: Omit<Address, "id">) => Address;
   selectedAddress: Address | null;
@@ -78,7 +79,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const login = (phoneOrEmail: string, role: "customer" | "seller" | "admin" = "customer") => {
+  const login = (
+    phoneOrEmail: string,
+    role: "customer" | "seller" | "admin" = "customer",
+    sellerId?: string
+  ) => {
     const isEmail = phoneOrEmail.includes("@");
     const newUser: User = {
       id: `user-${Date.now()}`,
@@ -86,11 +91,49 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       email: isEmail ? phoneOrEmail : `${phoneOrEmail}@customer.bharatkart.com`,
       phone: isEmail ? "+91 98765 43210" : phoneOrEmail,
       role,
+      sellerId,
       createdAt: new Date().toISOString(),
     };
     setUser(newUser);
     localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newUser));
     setIsLoginModalOpen(false);
+  };
+
+  const switchPersona = (role: "customer" | "seller" | "admin", sellerId?: string) => {
+    let personaUser: User;
+    if (role === "admin") {
+      personaUser = {
+        id: "user-admin",
+        name: "BharatKart Administrator",
+        email: "admin@bharatkart.com",
+        phone: "+91 99999 88888",
+        role: "admin",
+        createdAt: "2024-01-01T00:00:00.000Z",
+      };
+    } else if (role === "seller") {
+      const activeSellerId = sellerId || "seller-retailnet";
+      personaUser = {
+        id: `user-${activeSellerId}`,
+        name: "RetailNet SuperStore",
+        email: "orders@retailnet.com",
+        phone: "+91 98765 43211",
+        role: "seller",
+        sellerId: activeSellerId,
+        createdAt: "2024-01-01T00:00:00.000Z",
+      };
+    } else {
+      personaUser = {
+        id: "user-1",
+        name: "Rahul Sharma",
+        email: "rahul.sharma@example.com",
+        phone: "+91 98765 43210",
+        role: "customer",
+        createdAt: "2024-01-01T00:00:00.000Z",
+      };
+    }
+
+    setUser(personaUser);
+    localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(personaUser));
   };
 
   const logout = () => {
@@ -117,6 +160,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isAuthenticated: !!user,
         login,
         logout,
+        switchPersona,
         addresses,
         addAddress,
         selectedAddress,

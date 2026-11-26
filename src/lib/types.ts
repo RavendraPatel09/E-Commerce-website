@@ -39,6 +39,38 @@ export interface SellerInfo {
   badge?: string; // "Top Seller", "Assured Partner"
 }
 
+export interface Seller {
+  id: string;
+  userId: string;
+  name: string; // Business / Store name
+  email: string;
+  phone: string;
+  gstin: string;
+  pan: string;
+  bankDetails: {
+    accountNumber: string;
+    ifsc: string;
+    bankName: string;
+    accountHolder: string;
+  };
+  pickupAddress: {
+    addressLine: string;
+    city: string;
+    state: string;
+    pincode: string;
+  };
+  category: string;
+  status: "PENDING_VERIFICATION" | "VERIFIED" | "REJECTED";
+  commissionRate: number; // e.g. 0.08 for 8%
+  rating: number;
+  joinedYear: number;
+  city: string;
+  state: string;
+  badge?: string;
+  rejectionReason?: string;
+  createdAt: string;
+}
+
 export interface Product {
   id: string;
   title: string;
@@ -62,6 +94,9 @@ export interface Product {
   specifications: ProductSpecification[];
   variants?: ProductVariant[];
   seller: SellerInfo;
+  sellerId?: string;
+  approvalStatus?: "PENDING_APPROVAL" | "APPROVED" | "REJECTED";
+  rejectionReason?: string;
   bankOffers?: string[];
   warranty?: string;
   fastestDeliveryDays: number; // e.g. 1 or 2 days
@@ -145,6 +180,39 @@ export interface OrderItem {
   price: number;
   sellerId: string;
   sellerName: string;
+  status?: "ORDER_PLACED" | "PACKED" | "SHIPPED" | "DELIVERED" | "CANCELLED" | "RETURN_REQUESTED" | "REFUNDED";
+  trackingNumber?: string;
+  courierPartner?: string;
+  commissionRate?: number;
+  commissionAmount?: number;
+  sellerEarnings?: number;
+}
+
+export interface Payout {
+  id: string; // e.g. "PAYOUT-1001"
+  sellerId: string;
+  sellerName: string;
+  amount: number;
+  status: "PENDING" | "PROCESSING" | "PAID";
+  utr?: string;
+  period: string;
+  createdAt: string;
+  processedAt?: string;
+}
+
+export interface Refund {
+  id: string; // e.g. "REF-5001"
+  orderId: string;
+  productId: string;
+  sellerId: string;
+  customerName: string;
+  customerEmail: string;
+  amount: number;
+  reason: string;
+  status: "REQUESTED" | "APPROVED" | "PROCESSED" | "REJECTED";
+  rejectionReason?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface OrderTrackingStep {
@@ -193,6 +261,7 @@ export interface User {
   email: string;
   phone: string;
   role: "customer" | "seller" | "admin";
+  sellerId?: string;
   avatar?: string;
   addresses?: Address[];
   createdAt: string;

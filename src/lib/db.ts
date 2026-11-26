@@ -1,4 +1,17 @@
-import { Product, Category, PromotionalBanner, HomepageSection, Order, Coupon, User, SellerInfo } from "./types";
+import {
+  Product,
+  Category,
+  PromotionalBanner,
+  HomepageSection,
+  Order,
+  OrderItem,
+  Coupon,
+  User,
+  SellerInfo,
+  Seller,
+  Payout,
+  Refund,
+} from "./types";
 
 // ==========================================
 // SEED CATEGORIES
@@ -117,44 +130,243 @@ export const SEED_CATEGORIES: Category[] = [
 ];
 
 // ==========================================
+// CATEGORY COMMISSION RATES
+// ==========================================
+export const CATEGORY_COMMISSION_RATES: Record<string, number> = {
+  electronics: 0.08,
+  mobiles: 0.07,
+  fashion: 0.15,
+  "home-furniture": 0.12,
+  appliances: 0.10,
+  grocery: 0.05,
+  default: 0.10,
+};
+
+export function getCommissionRateForCategory(category: string): number {
+  return CATEGORY_COMMISSION_RATES[category.toLowerCase()] || CATEGORY_COMMISSION_RATES.default;
+}
+
+// ==========================================
 // SEED SELLERS
 // ==========================================
-export const SEED_SELLERS: SellerInfo[] = [
+export const SEED_SELLERS: Seller[] = [
   {
     id: "seller-retailnet",
+    userId: "user-seller-retailnet",
     name: "RetailNet SuperStore",
+    email: "orders@retailnet.com",
+    phone: "9876543211",
+    gstin: "29AABCR1234F1Z5",
+    pan: "AABCR1234F",
+    bankDetails: {
+      accountNumber: "912345678901",
+      ifsc: "HDFC0001234",
+      bankName: "HDFC Bank",
+      accountHolder: "RetailNet Technologies Private Limited",
+    },
+    pickupAddress: {
+      addressLine: "Warehouse 4B, Electronic City Phase 1",
+      city: "Bengaluru",
+      state: "Karnataka",
+      pincode: "560100",
+    },
+    category: "electronics",
+    status: "VERIFIED",
+    commissionRate: 0.08,
     rating: 4.8,
     joinedYear: 2018,
     city: "Bengaluru",
     state: "Karnataka",
     badge: "Platinum Assured Seller",
+    createdAt: "2018-04-15T00:00:00.000Z",
   },
   {
     id: "seller-omnitech",
+    userId: "user-seller-omnitech",
     name: "OmniTech India Retail",
+    email: "support@omnitech.in",
+    phone: "9876543212",
+    gstin: "27AAFCO5678G1Z2",
+    pan: "AAFCO5678G",
+    bankDetails: {
+      accountNumber: "812345678902",
+      ifsc: "ICIC0005678",
+      bankName: "ICICI Bank",
+      accountHolder: "OmniTech India Retail LLP",
+    },
+    pickupAddress: {
+      addressLine: "MIDC Industrial Area, Andheri East",
+      city: "Mumbai",
+      state: "Maharashtra",
+      pincode: "400093",
+    },
+    category: "electronics",
+    status: "VERIFIED",
+    commissionRate: 0.08,
     rating: 4.6,
     joinedYear: 2020,
     city: "Mumbai",
     state: "Maharashtra",
     badge: "Top Electronics Seller",
+    createdAt: "2020-08-20T00:00:00.000Z",
   },
   {
     id: "seller-truecom",
+    userId: "user-seller-truecom",
     name: "TrueCom Lifestyle & Fashion",
+    email: "contact@truecomlifestyle.com",
+    phone: "9876543213",
+    gstin: "07AAACT9012H1Z9",
+    pan: "AAACT9012H",
+    bankDetails: {
+      accountNumber: "712345678903",
+      ifsc: "SBIN0009012",
+      bankName: "State Bank of India",
+      accountHolder: "TrueCom Lifestyle & Retail",
+    },
+    pickupAddress: {
+      addressLine: "Okhla Industrial Area Phase 3",
+      city: "New Delhi",
+      state: "Delhi",
+      pincode: "110020",
+    },
+    category: "fashion",
+    status: "VERIFIED",
+    commissionRate: 0.15,
     rating: 4.5,
     joinedYear: 2021,
     city: "New Delhi",
     state: "Delhi",
     badge: "Authorized Brand Partner",
+    createdAt: "2021-02-10T00:00:00.000Z",
   },
   {
     id: "seller-livingspaces",
+    userId: "user-seller-livingspaces",
     name: "LivingSpaces Atelier",
+    email: "sales@livingspacesatelier.in",
+    phone: "9876543214",
+    gstin: "27AABCL3456J1Z1",
+    pan: "AABCL3456J",
+    bankDetails: {
+      accountNumber: "612345678904",
+      ifsc: "UTIB0003456",
+      bankName: "Axis Bank",
+      accountHolder: "LivingSpaces Atelier Pvt Ltd",
+    },
+    pickupAddress: {
+      addressLine: "Plot 88, Hadapsar Industrial Estate",
+      city: "Pune",
+      state: "Maharashtra",
+      pincode: "411028",
+    },
+    category: "home-furniture",
+    status: "VERIFIED",
+    commissionRate: 0.12,
     rating: 4.7,
     joinedYear: 2019,
     city: "Pune",
     state: "Maharashtra",
     badge: "Handcrafted Direct",
+    createdAt: "2019-11-05T00:00:00.000Z",
+  },
+  {
+    id: "seller-apex-gadgets",
+    userId: "user-seller-apex",
+    name: "Apex Gadgets & Tech",
+    email: "onboarding@apexgadgets.com",
+    phone: "9812345678",
+    gstin: "29AABCA7788P1Z3",
+    pan: "AABCA7788P",
+    bankDetails: {
+      accountNumber: "512345678905",
+      ifsc: "KKBK0007788",
+      bankName: "Kotak Mahindra Bank",
+      accountHolder: "Apex Gadgets India Pvt Ltd",
+    },
+    pickupAddress: {
+      addressLine: "Tech Park Phase 2, Whitefield",
+      city: "Bengaluru",
+      state: "Karnataka",
+      pincode: "560066",
+    },
+    category: "mobiles",
+    status: "PENDING_VERIFICATION",
+    commissionRate: 0.08,
+    rating: 0,
+    joinedYear: 2026,
+    city: "Bengaluru",
+    state: "Karnataka",
+    createdAt: new Date(Date.now() - 12 * 3600 * 1000).toISOString(),
+  },
+];
+
+// ==========================================
+// SEED PAYOUTS
+// ==========================================
+export const SEED_PAYOUTS: Payout[] = [
+  {
+    id: "PAYOUT-1001",
+    sellerId: "seller-retailnet",
+    sellerName: "RetailNet SuperStore",
+    amount: 145000,
+    status: "PAID",
+    utr: "CMS829104819280",
+    period: "Nov 2026 - Cycle 1",
+    createdAt: new Date(Date.now() - 7 * 86400 * 1000).toISOString(),
+    processedAt: new Date(Date.now() - 6 * 86400 * 1000).toISOString(),
+  },
+  {
+    id: "PAYOUT-1002",
+    sellerId: "seller-omnitech",
+    sellerName: "OmniTech India Retail",
+    amount: 62450,
+    status: "PAID",
+    utr: "CMS918273645100",
+    period: "Nov 2026 - Cycle 1",
+    createdAt: new Date(Date.now() - 5 * 86400 * 1000).toISOString(),
+    processedAt: new Date(Date.now() - 4 * 86400 * 1000).toISOString(),
+  },
+  {
+    id: "PAYOUT-1003",
+    sellerId: "seller-retailnet",
+    sellerName: "RetailNet SuperStore",
+    amount: 88500,
+    status: "PENDING",
+    period: "Nov 2026 - Cycle 2",
+    createdAt: new Date(Date.now() - 1 * 86400 * 1000).toISOString(),
+  },
+];
+
+// ==========================================
+// SEED REFUNDS
+// ==========================================
+export const SEED_REFUNDS: Refund[] = [
+  {
+    id: "REF-2001",
+    orderId: "OD82910481928",
+    productId: "prod-sony-wh1000xm5",
+    sellerId: "seller-omnitech",
+    customerName: "Rahul Sharma",
+    customerEmail: "rahul.sharma@example.com",
+    amount: 24990,
+    reason: "Wrong color sent by warehouse. Outer box shows black, requested silver replacement.",
+    status: "REQUESTED",
+    createdAt: new Date(Date.now() - 4 * 3600 * 1000).toISOString(),
+    updatedAt: new Date(Date.now() - 4 * 3600 * 1000).toISOString(),
+  },
+  {
+    id: "REF-2002",
+    orderId: "OD502910481900",
+    productId: "prod-apple-iphone-15-pro",
+    sellerId: "seller-retailnet",
+    customerName: "Priya Patel",
+    customerEmail: "priya.patel@example.com",
+    amount: 134999,
+    reason: "Customer ordered 256GB by mistake, requested exchange for 512GB model.",
+    status: "REQUESTED",
+    createdAt: new Date(Date.now() - 1800 * 1000).toISOString(),
+    updatedAt: new Date(Date.now() - 1800 * 1000).toISOString(),
   },
 ];
 
@@ -225,6 +437,8 @@ export const SEED_PRODUCTS: Product[] = [
       { id: "v1", name: "Natural Titanium - 128 GB", sku: "IP15P-NT-128", price: 124999, originalPrice: 134900, stock: 42, color: "Natural Titanium", storage: "128 GB" },
       { id: "v2", name: "Natural Titanium - 256 GB", sku: "IP15P-NT-256", price: 134999, originalPrice: 144900, stock: 25, color: "Natural Titanium", storage: "256 GB" },
       { id: "v3", name: "Black Titanium - 128 GB", sku: "IP15P-BT-128", price: 124999, originalPrice: 134900, stock: 18, color: "Black Titanium", storage: "128 GB" },
+      { id: "v4", name: "Natural Titanium - 512 GB", sku: "IP15P-NT-512", price: 154999, originalPrice: 164900, stock: 15, color: "Natural Titanium", storage: "512 GB" },
+      { id: "v5", name: "Black Titanium - 256 GB", sku: "IP15P-BT-256", price: 134999, originalPrice: 144900, stock: 20, color: "Black Titanium", storage: "256 GB" },
     ],
     seller: SEED_SELLERS[0],
     bankOffers: [
@@ -1236,19 +1450,135 @@ export const SEED_COUPONS: Coupon[] = [
 ];
 
 // ==========================================
-// IN-MEMORY DATABASE STATE (SINGLETON)
+// IN-MEMORY DATABASE STATE (WITH FILE-BACKED PERSISTENCE)
 // ==========================================
+function getStorageFile(): string | null {
+  if (typeof window !== "undefined") return null;
+  try {
+    const fs = require("fs");
+    const path = require("path");
+    const dir = path.join(process.cwd(), ".data");
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    return path.join(dir, "marketplace_store.json");
+  } catch (e) {
+    return null;
+  }
+}
+
 class MarketplaceDatabase {
   private products: Product[] = [...SEED_PRODUCTS];
   private categories: Category[] = [...SEED_CATEGORIES];
   private banners: PromotionalBanner[] = [...SEED_BANNERS];
   private sections: HomepageSection[] = [...SEED_SECTIONS];
   private coupons: Coupon[] = [...SEED_COUPONS];
-  private sellers: SellerInfo[] = [...SEED_SELLERS];
+  private sellers: Seller[] = [...SEED_SELLERS];
   private orders: Order[] = [];
+  private payouts: Payout[] = [...SEED_PAYOUTS];
+  private refunds: Refund[] = [...SEED_REFUNDS];
 
   constructor() {
-    // Seed initial orders for tracking demo
+    // Ensure all seed products have approved status and sellerId assigned
+    this.products = this.products.map((p) => ({
+      ...p,
+      approvalStatus: p.approvalStatus || "APPROVED",
+      sellerId: p.sellerId || p.seller?.id || "seller-retailnet",
+    }));
+
+    // Seed a pending product for testing approval workflow
+    this.products.unshift({
+      id: "prod-pending-oneplus-12r",
+      title: "OnePlus 12R 5G (Cool Blue, 16GB RAM, 256GB Storage)",
+      brand: "OnePlus",
+      category: "mobiles",
+      subCategory: "all-mobiles",
+      price: 45999,
+      originalPrice: 49999,
+      discountPercentage: 8,
+      rating: 0,
+      ratingCount: 0,
+      reviewCount: 0,
+      thumbnail: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+      images: ["https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80"],
+      inStock: true,
+      stockCount: 40,
+      isAssured: true,
+      description: "Snapdragon 8 Gen 2 processor, 100W SUPERVOOC fast charge, 120Hz ProXDR display with 4th Gen LTPO.",
+      highlights: [
+        "16GB LPDDR5X RAM & 256GB UFS 3.1 storage",
+        "5500 mAh battery with 100W SUPERVOOC charging",
+        "50MP Sony IMX890 camera system with OIS",
+      ],
+      specifications: [
+        {
+          category: "General",
+          items: [
+            { key: "Processor", value: "Qualcomm Snapdragon 8 Gen 2" },
+            { key: "RAM", value: "16 GB" },
+          ],
+        },
+      ],
+      seller: SEED_SELLERS[0],
+      sellerId: "seller-retailnet",
+      approvalStatus: "PENDING_APPROVAL",
+      fastestDeliveryDays: 2,
+      createdAt: new Date(Date.now() - 3600 * 1000).toISOString(),
+    });
+
+    // Seed initial orders for tracking and multi-vendor demo
+    this.orders.push({
+      id: "OD502910481900",
+      userId: "user-1",
+      customerName: "Priya Patel",
+      customerEmail: "priya.patel@example.com",
+      customerPhone: "+91 98112 33445",
+      items: [
+        {
+          productId: "prod-apple-iphone-15-pro",
+          title: "Apple iPhone 15 Pro (Natural Titanium - 256 GB)",
+          brand: "Apple",
+          thumbnail: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+          quantity: 1,
+          price: 134999,
+          sellerId: "seller-retailnet",
+          sellerName: "RetailNet SuperStore",
+          status: "ORDER_PLACED",
+          commissionRate: 0.08,
+          commissionAmount: 10800,
+          sellerEarnings: 124199,
+        },
+      ],
+      shippingAddress: {
+        id: "addr-priya",
+        fullName: "Priya Patel",
+        phone: "+91 98112 33445",
+        pincode: "400050",
+        locality: "Bandra West, Hill Road",
+        addressLine: "Flat 12, Ocean View Apartments",
+        city: "Mumbai",
+        state: "Maharashtra",
+        type: "HOME",
+        isDefault: true,
+      },
+      paymentMethod: "COD",
+      paymentStatus: "COD_PENDING",
+      subtotal: 134999,
+      discount: 9901,
+      deliveryFee: 0,
+      totalAmount: 134999,
+      currentStatus: "Order Confirmed",
+      trackingSteps: [
+        { status: "Ordered", date: "Today, 10:00 AM", completed: true, description: "Your order has been placed" },
+        { status: "Order Confirmed", date: "Today, 10:30 AM", completed: true, description: "Seller received order" },
+        { status: "Shipped", date: "Pending packing", completed: false, description: "Will be dispatched soon" },
+        { status: "Out For Delivery", date: "Pending dispatch", completed: false, description: "Courier on the way" },
+        { status: "Delivered", date: "Expected in 2 days", completed: false, description: "Safe delivery" },
+      ],
+      expectedDeliveryDate: "Expected in 2 days",
+      createdAt: new Date(Date.now() - 3600 * 1000).toISOString(),
+    });
+
     this.orders.push({
       id: "OD82910481928",
       userId: "user-1",
@@ -1265,6 +1595,12 @@ class MarketplaceDatabase {
           price: 24990,
           sellerId: "seller-omnitech",
           sellerName: "OmniTech India Retail",
+          status: "SHIPPED",
+          courierPartner: "BlueDart Express",
+          trackingNumber: "BD992819280IN",
+          commissionRate: 0.08,
+          commissionAmount: 1999,
+          sellerEarnings: 22991,
         },
       ],
       shippingAddress: {
@@ -1299,11 +1635,81 @@ class MarketplaceDatabase {
       expectedDeliveryDate: "Today by 7:00 PM",
       createdAt: new Date(Date.now() - 48 * 3600 * 1000).toISOString(),
     });
+
+    this.loadPersistedState();
+  }
+
+  private persist() {
+    try {
+      const filePath = getStorageFile();
+      if (!filePath) return;
+      const fs = require("fs");
+      const data = {
+        products: this.products,
+        categories: this.categories,
+        banners: this.banners,
+        sections: this.sections,
+        coupons: this.coupons,
+        sellers: this.sellers,
+        orders: this.orders,
+        payouts: this.payouts,
+        refunds: this.refunds,
+      };
+      fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf-8");
+    } catch (e) {}
+  }
+
+  private loadPersistedState() {
+    try {
+      const filePath = getStorageFile();
+      if (!filePath) return;
+      const fs = require("fs");
+      if (fs.existsSync(filePath)) {
+        const raw = fs.readFileSync(filePath, "utf-8");
+        const parsed = JSON.parse(raw);
+        if (parsed.orders && Array.isArray(parsed.orders) && parsed.orders.length > 0) {
+          const existingIds = new Set(this.orders.map((o) => o.id));
+          for (const order of parsed.orders) {
+            if (!existingIds.has(order.id)) {
+              this.orders.push(order);
+              existingIds.add(order.id);
+            }
+          }
+        }
+        if (parsed.sellers && Array.isArray(parsed.sellers)) {
+          this.sellers = parsed.sellers;
+        }
+        if (parsed.products && Array.isArray(parsed.products)) {
+          this.products = parsed.products;
+        }
+        if (parsed.payouts && Array.isArray(parsed.payouts)) {
+          this.payouts = parsed.payouts;
+        }
+        if (parsed.refunds && Array.isArray(parsed.refunds)) {
+          this.refunds = parsed.refunds;
+        }
+        if (parsed.banners && Array.isArray(parsed.banners)) {
+          this.banners = parsed.banners;
+        }
+        if (parsed.sections && Array.isArray(parsed.sections)) {
+          this.sections = parsed.sections;
+        }
+      }
+    } catch (e) {}
   }
 
   // PRODUCTS
-  getAllProducts(): Product[] {
-    return this.products;
+  getAllProducts(includeUnapproved: boolean = false): Product[] {
+    if (includeUnapproved) {
+      return this.products;
+    }
+    return this.products.filter((p) => p.approvalStatus === "APPROVED" || !p.approvalStatus);
+  }
+
+  getSellerProducts(sellerId: string): Product[] {
+    return this.products.filter(
+      (p) => p.sellerId === sellerId || p.seller?.id === sellerId
+    );
   }
 
   getProductById(id: string): Product | undefined {
@@ -1314,23 +1720,63 @@ class MarketplaceDatabase {
     const newProduct: Product = {
       ...productData,
       id: `prod-${Date.now()}`,
+      approvalStatus: productData.approvalStatus || "APPROVED",
+      sellerId: productData.sellerId || productData.seller?.id || "seller-retailnet",
       createdAt: new Date().toISOString(),
     };
     this.products.unshift(newProduct);
+    this.persist();
     return newProduct;
+  }
+
+  submitProduct(productData: Omit<Product, "id" | "createdAt" | "approvalStatus">): Product {
+    const newProduct: Product = {
+      ...productData,
+      id: `prod-${Date.now()}`,
+      approvalStatus: "PENDING_APPROVAL",
+      sellerId: productData.sellerId || productData.seller?.id || "seller-retailnet",
+      createdAt: new Date().toISOString(),
+    };
+    this.products.unshift(newProduct);
+    this.persist();
+    return newProduct;
+  }
+
+  approveProduct(id: string, status: "APPROVED" | "REJECTED", reason?: string): Product | null {
+    const product = this.getProductById(id);
+    if (!product) return null;
+    product.approvalStatus = status;
+    if (reason) product.rejectionReason = reason;
+    this.persist();
+    return product;
+  }
+
+  updateProductStock(id: string, stockCount: number, inStock?: boolean, price?: number): Product | null {
+    const product = this.getProductById(id);
+    if (!product) return null;
+    product.stockCount = Math.max(0, stockCount);
+    product.inStock = inStock !== undefined ? inStock : product.stockCount > 0;
+    if (price !== undefined && price > 0) {
+      product.price = price;
+    }
+    this.persist();
+    return product;
   }
 
   updateProduct(id: string, updates: Partial<Product>): Product | null {
     const index = this.products.findIndex((p) => p.id === id);
     if (index === -1) return null;
     this.products[index] = { ...this.products[index], ...updates };
+    this.persist();
     return this.products[index];
   }
 
   deleteProduct(id: string): boolean {
     const initialLength = this.products.length;
     this.products = this.products.filter((p) => p.id !== id);
-    return this.products.length < initialLength;
+    const removed = this.products.length < initialLength;
+    if (removed) this.persist();
+    return removed;
   }
 
   // CATEGORIES
@@ -1357,6 +1803,7 @@ class MarketplaceDatabase {
   addBanner(banner: Omit<PromotionalBanner, "id">): PromotionalBanner {
     const newBanner = { ...banner, id: `banner-${Date.now()}` };
     this.banners.push(newBanner);
+    this.persist();
     return newBanner;
   }
 
@@ -1364,13 +1811,16 @@ class MarketplaceDatabase {
     const index = this.banners.findIndex((b) => b.id === id);
     if (index === -1) return null;
     this.banners[index] = { ...this.banners[index], ...updates };
+    this.persist();
     return this.banners[index];
   }
 
   deleteBanner(id: string): boolean {
     const len = this.banners.length;
     this.banners = this.banners.filter((b) => b.id !== id);
-    return this.banners.length < len;
+    const removed = this.banners.length < len;
+    if (removed) this.persist();
+    return removed;
   }
 
   // HOMEPAGE SECTIONS
@@ -1385,6 +1835,7 @@ class MarketplaceDatabase {
   addSection(section: Omit<HomepageSection, "id">): HomepageSection {
     const newSection = { ...section, id: `sec-${Date.now()}` };
     this.sections.push(newSection);
+    this.persist();
     return newSection;
   }
 
@@ -1392,16 +1843,19 @@ class MarketplaceDatabase {
     const index = this.sections.findIndex((s) => s.id === id);
     if (index === -1) return null;
     this.sections[index] = { ...this.sections[index], ...updates };
+    this.persist();
     return this.sections[index];
   }
 
   deleteSection(id: string): boolean {
     const len = this.sections.length;
     this.sections = this.sections.filter((s) => s.id !== id);
-    return this.sections.length < len;
+    const removed = this.sections.length < len;
+    if (removed) this.persist();
+    return removed;
   }
 
-  // ORDERS
+  // ORDERS & MULTI-VENDOR
   getAllOrders(): Order[] {
     return this.orders.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   }
@@ -1410,11 +1864,69 @@ class MarketplaceDatabase {
     return this.orders.find((o) => o.id === id);
   }
 
+  getSellerOrders(sellerId: string): { order: Order; items: OrderItem[] }[] {
+    return this.orders
+      .filter((o) => o.items.some((item) => item.sellerId === sellerId))
+      .map((o) => ({
+        order: o,
+        items: o.items.filter((item) => item.sellerId === sellerId),
+      }));
+  }
+
+  updateOrderItemStatus(
+    orderId: string,
+    productId: string,
+    status: OrderItem["status"],
+    trackingNumber?: string,
+    courierPartner?: string
+  ): boolean {
+    const order = this.getOrderById(orderId);
+    if (!order) return false;
+
+    const item = order.items.find((i) => i.productId === productId);
+    if (!item) return false;
+
+    item.status = status;
+    if (trackingNumber) item.trackingNumber = trackingNumber;
+    if (courierPartner) item.courierPartner = courierPartner;
+
+    // If all items in this order have progressed, update master order status
+    const allDelivered = order.items.every((i) => i.status === "DELIVERED");
+    const allShipped = order.items.every((i) => i.status === "SHIPPED" || i.status === "DELIVERED");
+    if (allDelivered) {
+      order.currentStatus = "Delivered";
+    } else if (allShipped) {
+      order.currentStatus = "Shipped";
+    }
+
+    return true;
+  }
+
   createOrder(orderData: Omit<Order, "id" | "createdAt" | "currentStatus" | "trackingSteps">): Order {
     const orderId = `OD${Date.now().toString().slice(-8)}${Math.floor(1000 + Math.random() * 9000)}`;
+
+    // Enrich items with automated commission & split order status
+    const enrichedItems: OrderItem[] = orderData.items.map((item) => {
+      const prod = this.getProductById(item.productId);
+      const cat = prod?.category || "default";
+      const rate = getCommissionRateForCategory(cat);
+      const itemTotal = item.price * item.quantity;
+      const commissionAmount = Math.round(itemTotal * rate);
+      const sellerEarnings = itemTotal - commissionAmount;
+
+      return {
+        ...item,
+        status: item.status || "ORDER_PLACED",
+        commissionRate: rate,
+        commissionAmount,
+        sellerEarnings,
+      };
+    });
+
     const newOrder: Order = {
       ...orderData,
       id: orderId,
+      items: enrichedItems,
       currentStatus: "Order Confirmed",
       trackingSteps: [
         { status: "Ordered", date: "Just now", completed: true, description: "Order has been placed successfully." },
@@ -1446,7 +1958,6 @@ class MarketplaceDatabase {
     if (!order) return null;
     order.currentStatus = status;
 
-    // Update tracking steps up to this status
     const statusOrder: Order["currentStatus"][] = [
       "Ordered",
       "Order Confirmed",
@@ -1475,8 +1986,148 @@ class MarketplaceDatabase {
   }
 
   // SELLERS
-  getAllSellers(): SellerInfo[] {
+  getAllSellers(): Seller[] {
     return this.sellers;
+  }
+
+  getSellerById(id: string): Seller | undefined {
+    return this.sellers.find((s) => s.id === id);
+  }
+
+  getSellerByUserId(userId: string): Seller | undefined {
+    return this.sellers.find((s) => s.userId === userId);
+  }
+
+  createSeller(
+    data: Omit<Seller, "id" | "createdAt" | "status" | "rating" | "joinedYear">
+  ): Seller {
+    const newSeller: Seller = {
+      ...data,
+      id: `seller-${Date.now()}`,
+      status: "PENDING_VERIFICATION",
+      commissionRate: getCommissionRateForCategory(data.category),
+      rating: 0,
+      joinedYear: new Date().getFullYear(),
+      createdAt: new Date().toISOString(),
+    };
+    this.sellers.push(newSeller);
+    return newSeller;
+  }
+
+  verifySeller(id: string, status: "VERIFIED" | "REJECTED", reason?: string): Seller | null {
+    const seller = this.getSellerById(id);
+    if (!seller) return null;
+    seller.status = status;
+    if (reason) seller.rejectionReason = reason;
+    return seller;
+  }
+
+  updateSeller(id: string, updates: Partial<Seller>): Seller | null {
+    const index = this.sellers.findIndex((s) => s.id === id);
+    if (index === -1) return null;
+    this.sellers[index] = { ...this.sellers[index], ...updates };
+    return this.sellers[index];
+  }
+
+  getSellerFinancials(sellerId: string) {
+    let grossSales = 0;
+    let totalCommission = 0;
+    let totalItemsSold = 0;
+
+    this.orders.forEach((o) => {
+      o.items.forEach((item) => {
+        if (item.sellerId === sellerId) {
+          const itemTotal = item.price * item.quantity;
+          const comm = item.commissionAmount || Math.round(itemTotal * (item.commissionRate || 0.1));
+          grossSales += itemTotal;
+          totalCommission += comm;
+          totalItemsSold += item.quantity;
+        }
+      });
+    });
+
+    const netEarnings = grossSales - totalCommission;
+
+    const sellerPayouts = this.payouts.filter((p) => p.sellerId === sellerId);
+    const paidOut = sellerPayouts
+      .filter((p) => p.status === "PAID")
+      .reduce((sum, p) => sum + p.amount, 0);
+
+    const pendingPayouts = sellerPayouts
+      .filter((p) => p.status === "PENDING" || p.status === "PROCESSING")
+      .reduce((sum, p) => sum + p.amount, 0);
+
+    const availableBalance = Math.max(0, netEarnings - paidOut - pendingPayouts);
+
+    return {
+      grossSales,
+      totalCommission,
+      netEarnings,
+      paidOut,
+      pendingPayouts,
+      availableBalance,
+      totalItemsSold,
+    };
+  }
+
+  // PAYOUTS
+  getPayouts(sellerId?: string): Payout[] {
+    if (sellerId) {
+      return this.payouts.filter((p) => p.sellerId === sellerId);
+    }
+    return this.payouts;
+  }
+
+  requestPayout(sellerId: string, amount: number): Payout {
+    const seller = this.getSellerById(sellerId);
+    const newPayout: Payout = {
+      id: `PAYOUT-${Date.now().toString().slice(-6)}`,
+      sellerId,
+      sellerName: seller?.name || "Seller",
+      amount,
+      status: "PENDING",
+      period: `Cycle ${new Date().toLocaleDateString("en-IN", { month: "short", year: "numeric" })}`,
+      createdAt: new Date().toISOString(),
+    };
+    this.payouts.unshift(newPayout);
+    return newPayout;
+  }
+
+  processPayout(id: string, utr: string): Payout | null {
+    const payout = this.payouts.find((p) => p.id === id);
+    if (!payout) return null;
+    payout.status = "PAID";
+    payout.utr = utr;
+    payout.processedAt = new Date().toISOString();
+    return payout;
+  }
+
+  // REFUNDS
+  getRefunds(sellerId?: string): Refund[] {
+    if (sellerId) {
+      return this.refunds.filter((r) => r.sellerId === sellerId);
+    }
+    return this.refunds;
+  }
+
+  createRefund(data: Omit<Refund, "id" | "createdAt" | "updatedAt">): Refund {
+    const newRefund: Refund = {
+      ...data,
+      id: `REF-${Date.now().toString().slice(-6)}`,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+    this.refunds.unshift(newRefund);
+    return newRefund;
+  }
+
+  updateRefundStatus(id: string, status: Refund["status"], reason?: string): Refund | null {
+    const refund = this.refunds.find((r) => r.id === id);
+    if (!refund) return null;
+    refund.status = status;
+    if (reason) refund.rejectionReason = reason;
+    refund.updatedAt = new Date().toISOString();
+    return refund;
   }
 }
 
