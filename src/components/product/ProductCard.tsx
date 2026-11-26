@@ -28,7 +28,7 @@ export function ProductCard({ product, layout = "grid" }: ProductCardProps) {
 
   return (
     <div
-      className={`group relative bg-white border border-gray-100 rounded-sm hover:shadow-fkHover transition-all duration-200 flex flex-col justify-between p-3.5 ${
+      className={`group relative bg-white border border-gray-100 rounded-sm hover:shadow-[0_3px_16px_0_rgba(0,0,0,0.11)] hover:border-gray-200 transition-all duration-200 flex flex-col justify-between p-3.5 h-full ${
         layout === "carousel" ? "w-[240px] shrink-0" : "w-full"
       }`}
     >
@@ -63,10 +63,10 @@ export function ProductCard({ product, layout = "grid" }: ProductCardProps) {
             {product.brand}
           </p>
 
-          {/* Title */}
+          {/* Title with exact baseline uniform height */}
           <Link
             href={`/product/${product.id}`}
-            className="text-[13px] font-medium text-gray-800 line-clamp-2 group-hover:text-blue-600 transition-colors leading-snug mb-1.5"
+            className="text-[13px] font-medium text-gray-800 line-clamp-2 h-[38px] leading-[19px] overflow-hidden group-hover:text-blue-600 transition-colors mb-1.5 block"
             title={product.title}
           >
             {product.title}
@@ -107,10 +107,10 @@ export function ProductCard({ product, layout = "grid" }: ProductCardProps) {
           {/* Quick Add to Cart button */}
           <button
             onClick={handleAddToCart}
-            className={`w-full mt-2.5 py-1.5 px-3 rounded-sm text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+            className={`w-full mt-2.5 py-1.5 px-3 rounded-sm text-xs font-bold transition-all flex items-center justify-center gap-1.5 active:scale-95 ${
               isInCart
                 ? "bg-green-50 text-green-700 border border-green-300"
-                : "bg-amber-400 hover:bg-amber-500 text-gray-900 shadow-sm"
+                : "bg-[#ff9f00] hover:bg-[#f39700] text-gray-950 shadow-sm"
             }`}
           >
             {isInCart ? (

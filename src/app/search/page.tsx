@@ -7,6 +7,7 @@ import { FilterSidebar, FilterState } from "@/components/product/FilterSidebar";
 import { SortBar } from "@/components/product/SortBar";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { Pagination } from "@/components/product/Pagination";
+import { ProductGridSkeleton } from "@/components/common/Skeletons";
 import { SlidersHorizontal, ChevronRight, X } from "lucide-react";
 
 function SearchContent() {
@@ -180,18 +181,7 @@ function SearchContent() {
           />
 
           {loading ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              {[...Array(8)].map((_, i) => (
-                <div key={i} className="bg-white border border-gray-100 rounded p-4 h-72 animate-pulse flex flex-col justify-between">
-                  <div className="w-full h-36 bg-gray-200 rounded" />
-                  <div className="space-y-2 mt-2">
-                    <div className="h-3 bg-gray-200 rounded w-1/3" />
-                    <div className="h-4 bg-gray-200 rounded w-full" />
-                    <div className="h-4 bg-gray-200 rounded w-1/2" />
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ProductGridSkeleton count={8} />
           ) : (
             <>
               <ProductGrid products={products} onClearFilters={handleClearFilters} />

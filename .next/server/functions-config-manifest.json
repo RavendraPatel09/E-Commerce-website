@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/api/admin/metrics":{},"/api/payment/razorpay/webhook":{},"/orders/[id]":{},"/":{},"/product/[id]":{},"/order-success/[id]":{}}}
+{"version":1,"functions":{"/api/admin/metrics":{},"/api/payment/razorpay/webhook":{},"/order-success/[id]":{},"/orders/[id]":{},"/":{},"/product/[id]":{}}}

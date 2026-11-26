@@ -62,7 +62,7 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
         className="flex items-stretch gap-3 overflow-x-auto scrollbar-none py-2 px-1 scroll-smooth"
       >
         {products.map((product) => (
-          <div key={product.id} className="w-[220px] md:w-[240px] shrink-0">
+          <div key={product.id} className="w-[220px] md:w-[240px] shrink-0 flex flex-col">
             <ProductCard product={product} layout="carousel" />
           </div>
         ))}
