@@ -198,6 +198,10 @@ export interface Payout {
   period: string;
   createdAt: string;
   processedAt?: string;
+  settlementMethod?: "NEFT" | "RTGS" | "IMPS" | "DIRECT_TRANSFER";
+  bankAccountMasked?: string;
+  verifiedBy?: string;
+  reconciliationStatus?: "VERIFIED" | "PENDING_BANK_RECONCILIATION";
 }
 
 export interface Refund {
@@ -211,6 +215,9 @@ export interface Refund {
   reason: string;
   status: "REQUESTED" | "APPROVED" | "PROCESSED" | "REJECTED";
   rejectionReason?: string;
+  paymentGatewayRefundId?: string;
+  gatewayConfirmationStatus?: "INITIATED" | "PROCESSED" | "FAILED";
+  arn?: string;
   createdAt: string;
   updatedAt: string;
 }

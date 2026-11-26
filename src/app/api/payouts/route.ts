@@ -46,18 +46,32 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
   try {
     const body = await request.json();
-    const { id, utr } = body;
+    const { id, utr, settlementMethod = "NEFT", verifiedBy = "admin@bharatkart.com" } = body;
 
     if (!id || !utr) {
       return NextResponse.json(
-        { success: false, error: "Payout id and UTR reference are required" },
+        { success: false, error: "Payout id and Banking UTR reference are required" },
         { status: 400 }
       );
     }
 
-    const payout = db.processPayout(id, utr);
+    const cleanUtr = utr.trim().toUpperCase();
+
+    // Strict Banking UTR Validation (RBI standard: 12-24 alphanumeric chars)
+    if (!/^[A-Z0-9]{12,24}$/.test(cleanUtr)) {
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Invalid Banking UTR format. A valid RBI NEFT/RTGS/IMPS transaction reference must be between 12 and 24 alphanumeric characters (e.g. CMS991188220011).",
+        },
+        { status: 400 }
+      );
+    }
+
+    const payout = db.processPayout(id, cleanUtr, settlementMethod, verifiedBy);
     if (!payout) {
-      return NextResponse.json({ success: false, error: "Payout not found" }, { status: 404 });
+      return NextResponse.json({ success: false, error: "Payout not found or already settled" }, { status: 404 });
     }
 
     return NextResponse.json({ success: true, payout });

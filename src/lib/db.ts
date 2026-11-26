@@ -2129,12 +2129,24 @@ class MarketplaceDatabase {
     return newPayout;
   }
 
-  processPayout(id: string, utr: string): Payout | null {
+  processPayout(
+    id: string,
+    utr: string,
+    settlementMethod: "NEFT" | "RTGS" | "IMPS" | "DIRECT_TRANSFER" = "NEFT",
+    verifiedBy: string = "admin@bharatkart.com"
+  ): Payout | null {
     const payout = this.payouts.find((p) => p.id === id);
     if (!payout) return null;
+    const seller = this.getSellerById(payout.sellerId);
     payout.status = "PAID";
     payout.utr = utr;
     payout.processedAt = new Date().toISOString();
+    payout.settlementMethod = settlementMethod;
+    payout.verifiedBy = verifiedBy;
+    payout.reconciliationStatus = "VERIFIED";
+    if (seller?.bankDetails) {
+      payout.bankAccountMasked = `${seller.bankDetails.bankName} (A/C: ••••${seller.bankDetails.accountNumber.slice(-4)})`;
+    }
     this.persist();
     return payout;
   }
@@ -2159,11 +2171,24 @@ class MarketplaceDatabase {
     return newRefund;
   }
 
-  updateRefundStatus(id: string, status: Refund["status"], reason?: string): Refund | null {
+  updateRefundStatus(
+    id: string,
+    status: Refund["status"],
+    reason?: string,
+    gatewayRefundId?: string,
+    arn?: string
+  ): Refund | null {
     const refund = this.refunds.find((r) => r.id === id);
     if (!refund) return null;
     refund.status = status;
     if (reason) refund.rejectionReason = reason;
+    if (status === "PROCESSED") {
+      refund.paymentGatewayRefundId = gatewayRefundId || `rfnd_rzp_${Date.now().toString().slice(-8)}`;
+      refund.gatewayConfirmationStatus = "PROCESSED";
+      refund.arn = arn || `ARN${Date.now().toString().slice(-10)}`;
+    } else if (status === "REJECTED") {
+      refund.gatewayConfirmationStatus = "FAILED";
+    }
     refund.updatedAt = new Date().toISOString();
     this.persist();
     return refund;

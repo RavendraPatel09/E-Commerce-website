@@ -2959,9 +2959,9 @@
         },
         {
           "status": "Shipped",
-          "date": "Expected in 24 hours",
-          "completed": false,
-          "description": "Package will be dispatched soon."
+          "date": "Today, 10:15 AM",
+          "completed": true,
+          "description": "Dispatched via BlueDart Express (BD777888999IN)"
         },
         {
           "status": "Out For Delivery",

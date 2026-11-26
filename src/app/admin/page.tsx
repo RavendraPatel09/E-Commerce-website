@@ -10,7 +10,7 @@ import {
   Payout,
   Refund,
 } from "@/lib/types";
-import { formatINR } from "@/lib/utils";
+import { formatINR, maskBankAccount, maskPAN, maskGSTIN, maskPhone } from "@/lib/utils";
 import { useAuth } from "@/context/AuthContext";
 import { RolePersonaBar } from "@/components/common/RolePersonaBar";
 import {
@@ -701,17 +701,17 @@ export default function AdminDashboardPage() {
                   <div className="space-y-1 bg-gray-50 p-2.5 rounded border border-gray-100">
                     <strong className="text-gray-900 block font-bold">Business & Tax Details</strong>
                     <p>Email: {seller.email}</p>
-                    <p>Phone: {seller.phone}</p>
+                    <p>Phone: {maskPhone(seller.phone)}</p>
                     <p>Category: <strong className="capitalize">{seller.category}</strong> (Commission: {((seller.commissionRate || 0.1) * 100).toFixed(0)}%)</p>
-                    <p>GSTIN: <strong className="font-mono text-gray-900">{seller.gstin}</strong></p>
-                    <p>PAN: <strong className="font-mono text-gray-900">{seller.pan}</strong></p>
+                    <p>GSTIN: <strong className="font-mono text-gray-900">{maskGSTIN(seller.gstin)}</strong></p>
+                    <p>PAN: <strong className="font-mono text-gray-900">{maskPAN(seller.pan)}</strong></p>
                   </div>
 
                   <div className="space-y-1 bg-gray-50 p-2.5 rounded border border-gray-100">
                     <strong className="text-gray-900 block font-bold">Bank Settlement Account</strong>
                     <p>Beneficiary: <strong className="text-gray-900">{seller.bankDetails?.accountHolder}</strong></p>
                     <p>Bank: {seller.bankDetails?.bankName}</p>
-                    <p>Account Number: <strong className="font-mono text-gray-900">{seller.bankDetails?.accountNumber}</strong></p>
+                    <p>Account Number: <strong className="font-mono text-gray-900">{maskBankAccount(seller.bankDetails?.accountNumber)}</strong></p>
                     <p>IFSC: <strong className="font-mono text-gray-900">{seller.bankDetails?.ifsc}</strong></p>
                   </div>
 

@@ -98,3 +98,43 @@ export function getEstimatedDeliveryDate(days: number = 2): string {
     month: "short",
   });
 }
+
+/**
+ * Mask sensitive bank account number: e.g. "912345678901" -> "••••••••8901"
+ */
+export function maskBankAccount(acc?: string): string {
+  if (!acc) return "••••••••••••";
+  const clean = acc.trim();
+  if (clean.length <= 4) return "••••" + clean;
+  return "•".repeat(clean.length - 4) + clean.slice(-4);
+}
+
+/**
+ * Mask PAN: e.g. "ABCDE1234F" -> "AB••••••4F"
+ */
+export function maskPAN(pan?: string): string {
+  if (!pan) return "••••••••••";
+  const clean = pan.trim();
+  if (clean.length <= 4) return clean;
+  return clean.slice(0, 2) + "••••••" + clean.slice(-2);
+}
+
+/**
+ * Mask GSTIN: e.g. "29ABCDE1234F1Z5" -> "29••••••••••1Z5"
+ */
+export function maskGSTIN(gstin?: string): string {
+  if (!gstin) return "•••••••••••••••";
+  const clean = gstin.trim();
+  if (clean.length <= 5) return clean;
+  return clean.slice(0, 2) + "••••••••••" + clean.slice(-3);
+}
+
+/**
+ * Mask customer phone: e.g. "+91 98765 43210" -> "+91 ••••• •3210"
+ */
+export function maskPhone(phone?: string): string {
+  if (!phone) return "••••••••••";
+  const clean = phone.trim();
+  if (clean.length <= 4) return clean;
+  return clean.slice(0, -4).replace(/[0-9]/g, "•") + clean.slice(-4);
+}
