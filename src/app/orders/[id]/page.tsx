@@ -61,13 +61,18 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
             {/* Step Milestones */}
             {order.trackingSteps.map((step, idx) => {
               const isLast = idx === order.trackingSteps.length - 1;
+              const statusHierarchy = ["Ordered", "Order Confirmed", "Shipped", "Out For Delivery", "Delivered"];
+              const currentIdx = statusHierarchy.indexOf(order.currentStatus);
+              const stepIdx = statusHierarchy.indexOf(step.status);
+              const isStepCompleted = step.completed || (currentIdx !== -1 && stepIdx !== -1 && stepIdx <= currentIdx);
+
               return (
                 <div key={idx} className="flex-1 flex md:flex-col items-start md:items-center relative text-left md:text-center group">
                   {/* Connector Line for Desktop */}
                   {!isLast && (
                     <div
                       className={`hidden md:block absolute top-3.5 left-1/2 w-full h-1 -z-0 ${
-                        step.completed ? "bg-emerald-500" : "bg-gray-200"
+                        isStepCompleted && (currentIdx > idx || step.completed) ? "bg-emerald-500" : "bg-gray-200"
                       }`}
                     />
                   )}
@@ -75,12 +80,12 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
                   {/* Icon */}
                   <div
                     className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 z-10 mr-3 md:mr-0 md:mb-2 ${
-                      step.completed
+                      isStepCompleted
                         ? "bg-emerald-500 text-white shadow-md ring-4 ring-emerald-50"
                         : "bg-gray-200 text-gray-400"
                     }`}
                   >
-                    {step.completed ? (
+                    {isStepCompleted ? (
                       <CheckCircle2 className="w-4 h-4" />
                     ) : (
                       <Circle className="w-3.5 h-3.5" />
@@ -89,7 +94,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
 
                   {/* Text Details */}
                   <div className="text-xs">
-                    <p className={`font-bold ${step.completed ? "text-gray-900" : "text-gray-400"}`}>
+                    <p className={`font-bold ${isStepCompleted ? "text-gray-900" : "text-gray-400"}`}>
                       {step.status}
                     </p>
                     <p className="text-[11px] text-gray-500 mt-0.5">{step.date}</p>

@@ -1,81 +1,6 @@
 {
   "products": [
     {
-      "id": "prod-pending-oneplus-12r",
-      "title": "OnePlus 12R 5G (Cool Blue, 16GB RAM, 256GB Storage)",
-      "brand": "OnePlus",
-      "category": "mobiles",
-      "subCategory": "all-mobiles",
-      "price": 45999,
-      "originalPrice": 49999,
-      "discountPercentage": 8,
-      "rating": 0,
-      "ratingCount": 0,
-      "reviewCount": 0,
-      "thumbnail": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 40,
-      "isAssured": true,
-      "description": "Snapdragon 8 Gen 2 processor, 100W SUPERVOOC fast charge, 120Hz ProXDR display with 4th Gen LTPO.",
-      "highlights": [
-        "16GB LPDDR5X RAM & 256GB UFS 3.1 storage",
-        "5500 mAh battery with 100W SUPERVOOC charging",
-        "50MP Sony IMX890 camera system with OIS"
-      ],
-      "specifications": [
-        {
-          "category": "General",
-          "items": [
-            {
-              "key": "Processor",
-              "value": "Qualcomm Snapdragon 8 Gen 2"
-            },
-            {
-              "key": "RAM",
-              "value": "16 GB"
-            }
-          ]
-        }
-      ],
-      "seller": {
-        "id": "seller-retailnet",
-        "userId": "user-seller-retailnet",
-        "name": "RetailNet SuperStore",
-        "email": "orders@retailnet.com",
-        "phone": "9876543211",
-        "gstin": "29AABCR1234F1Z5",
-        "pan": "AABCR1234F",
-        "bankDetails": {
-          "accountNumber": "912345678901",
-          "ifsc": "HDFC0001234",
-          "bankName": "HDFC Bank",
-          "accountHolder": "RetailNet Technologies Private Limited"
-        },
-        "pickupAddress": {
-          "addressLine": "Warehouse 4B, Electronic City Phase 1",
-          "city": "Bengaluru",
-          "state": "Karnataka",
-          "pincode": "560100"
-        },
-        "category": "electronics",
-        "status": "VERIFIED",
-        "commissionRate": 0.08,
-        "rating": 4.8,
-        "joinedYear": 2018,
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "badge": "Platinum Assured Seller",
-        "createdAt": "2018-04-15T00:00:00.000Z"
-      },
-      "sellerId": "seller-retailnet",
-      "approvalStatus": "PENDING_APPROVAL",
-      "fastestDeliveryDays": 2,
-      "createdAt": "2026-11-26T08:55:40.204Z"
-    },
-    {
       "id": "prod-apple-iphone-15-pro",
       "title": "Apple iPhone 15 Pro (Natural Titanium, 128 GB)",
       "brand": "Apple",
@@ -262,6 +187,123 @@
       "sellerId": "seller-retailnet"
     },
     {
+      "id": "prod-levis-511-jeans",
+      "title": "Levi's Men's 511 Slim Fit Advanced Stretchable Dark Indigo Denim Jeans",
+      "brand": "Levi's",
+      "category": "fashion",
+      "subCategory": "mens-bottom-wear",
+      "price": 2499,
+      "originalPrice": 4299,
+      "discountPercentage": 41,
+      "rating": 4.6,
+      "ratingCount": 14210,
+      "reviewCount": 1890,
+      "thumbnail": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 60,
+      "isAssured": true,
+      "featuredDeal": "Fashion Deals",
+      "description": "The modern slim with room to move. A contemporary alternative to straight jeans, the 511 Slim Jeans are cut close without feeling too tight.",
+      "highlights": [
+        "99% Cotton, 1% Elastane with Levi's Flex stretch",
+        "Sits below the waist with a slim leg from hip to ankle",
+        "Classic 5-pocket styling and signature red tab"
+      ],
+      "specifications": [
+        {
+          "category": "Fit & Fabric",
+          "items": [
+            {
+              "key": "Fit",
+              "value": "Slim Fit"
+            },
+            {
+              "key": "Rise",
+              "value": "Mid Rise"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "lev-30",
+          "name": "30 Waist",
+          "sku": "LEV-511-30",
+          "price": 2499,
+          "originalPrice": 4299,
+          "stock": 15,
+          "size": "30"
+        },
+        {
+          "id": "lev-32",
+          "name": "32 Waist",
+          "sku": "LEV-511-32",
+          "price": 2499,
+          "originalPrice": 4299,
+          "stock": 24,
+          "size": "32"
+        },
+        {
+          "id": "lev-34",
+          "name": "34 Waist",
+          "sku": "LEV-511-34",
+          "price": 2499,
+          "originalPrice": 4299,
+          "stock": 18,
+          "size": "34"
+        },
+        {
+          "id": "lev-36",
+          "name": "36 Waist",
+          "sku": "LEV-511-36",
+          "price": 2499,
+          "originalPrice": 4299,
+          "stock": 9,
+          "size": "36"
+        }
+      ],
+      "seller": {
+        "id": "seller-truecom",
+        "userId": "user-seller-truecom",
+        "name": "TrueCom Lifestyle & Fashion",
+        "email": "contact@truecomlifestyle.com",
+        "phone": "9876543213",
+        "gstin": "07AAACT9012H1Z9",
+        "pan": "AAACT9012H",
+        "bankDetails": {
+          "accountNumber": "712345678903",
+          "ifsc": "SBIN0009012",
+          "bankName": "State Bank of India",
+          "accountHolder": "TrueCom Lifestyle & Retail"
+        },
+        "pickupAddress": {
+          "addressLine": "Okhla Industrial Area Phase 3",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110020"
+        },
+        "category": "fashion",
+        "status": "VERIFIED",
+        "commissionRate": 0.15,
+        "rating": 4.5,
+        "joinedYear": 2021,
+        "city": "New Delhi",
+        "state": "Delhi",
+        "badge": "Authorized Brand Partner",
+        "createdAt": "2021-02-10T00:00:00.000Z"
+      },
+      "bankOffers": [
+        "Buy 2 get extra 10% off"
+      ],
+      "fastestDeliveryDays": 2,
+      "createdAt": "2026-11-26T09:55:40.204Z",
+      "approvalStatus": "APPROVED",
+      "sellerId": "seller-truecom"
+    },
+    {
       "id": "prod-samsung-galaxy-s24-ultra",
       "title": "SAMSUNG Galaxy S24 Ultra 5G (Titanium Gray, 256 GB, 12 GB RAM)",
       "brand": "Samsung",
@@ -399,6 +441,91 @@
       "sellerId": "seller-retailnet"
     },
     {
+      "id": "prod-wakefit-ergonomic-chair",
+      "title": "Wakefit High Back Ergonomic Mesh Office Chair with Adjustable Lumbar Support",
+      "brand": "Wakefit",
+      "category": "home-furniture",
+      "subCategory": "office-furniture",
+      "price": 8999,
+      "originalPrice": 14999,
+      "discountPercentage": 40,
+      "rating": 4.5,
+      "ratingCount": 9810,
+      "reviewCount": 1240,
+      "thumbnail": "https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 45,
+      "isAssured": true,
+      "featuredDeal": "Home and furniture",
+      "description": "Designed for all-day comfort during long work and study hours. Features breathable Korean mesh, multi-directional 3D armrests, synchro-tilt mechanism with lock, and heavy-duty nylon wheelbase.",
+      "highlights": [
+        "Breathable high-density mesh back prevents heat buildup",
+        "Adjustable 2D Lumbar support for spine alignment",
+        "Multi-lock tilt mechanism up to 135 degrees",
+        "BIFMA certified Class-4 gas lift tested for up to 135 kg",
+        "3 Years Comprehensive Manufacturer Warranty"
+      ],
+      "specifications": [
+        {
+          "category": "Dimensions",
+          "items": [
+            {
+              "key": "Height",
+              "value": "115 - 125 cm"
+            },
+            {
+              "key": "Seat Width",
+              "value": "50 cm"
+            },
+            {
+              "key": "Max Weight Capacity",
+              "value": "135 kg"
+            }
+          ]
+        }
+      ],
+      "seller": {
+        "id": "seller-livingspaces",
+        "userId": "user-seller-livingspaces",
+        "name": "LivingSpaces Atelier",
+        "email": "sales@livingspacesatelier.in",
+        "phone": "9876543214",
+        "gstin": "27AABCL3456J1Z1",
+        "pan": "AABCL3456J",
+        "bankDetails": {
+          "accountNumber": "612345678904",
+          "ifsc": "UTIB0003456",
+          "bankName": "Axis Bank",
+          "accountHolder": "LivingSpaces Atelier Pvt Ltd"
+        },
+        "pickupAddress": {
+          "addressLine": "Plot 88, Hadapsar Industrial Estate",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "pincode": "411028"
+        },
+        "category": "home-furniture",
+        "status": "VERIFIED",
+        "commissionRate": 0.12,
+        "rating": 4.7,
+        "joinedYear": 2019,
+        "city": "Pune",
+        "state": "Maharashtra",
+        "badge": "Handcrafted Direct",
+        "createdAt": "2019-11-05T00:00:00.000Z"
+      },
+      "bankOffers": [
+        "Bank Offer: Flat ₹1,000 off on all credit cards"
+      ],
+      "fastestDeliveryDays": 2,
+      "createdAt": "2026-11-26T09:55:40.204Z",
+      "approvalStatus": "APPROVED",
+      "sellerId": "seller-livingspaces"
+    },
+    {
       "id": "prod-sony-wh1000xm5",
       "title": "SONY WH-1000XM5 Wireless Active Noise Cancelling Bluetooth Headphones",
       "brand": "Sony",
@@ -513,6 +640,638 @@
       "createdAt": "2026-11-26T09:55:40.204Z",
       "approvalStatus": "APPROVED",
       "sellerId": "seller-omnitech"
+    },
+    {
+      "id": "prod-philips-air-fryer-xxl",
+      "title": "PHILIPS Connected Airfryer XXL 1.4 kg, 7.2 L with Rapid Air Technology",
+      "brand": "Philips",
+      "category": "appliances",
+      "subCategory": "kitchen-appliances",
+      "price": 14999,
+      "originalPrice": 22995,
+      "discountPercentage": 35,
+      "rating": 4.6,
+      "ratingCount": 7120,
+      "reviewCount": 890,
+      "thumbnail": "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 38,
+      "isAssured": true,
+      "featuredDeal": "Top Offers",
+      "description": "Healthy cooking made effortless. Cook with up to 90% less fat with Rapid Air Technology. Connect to the NutriU App to monitor your cooking from anywhere.",
+      "highlights": [
+        "7.2 Liter Capacity (1.4 kg food capacity)",
+        "2000 Watts powerful heating for fast cooking",
+        "Digital touch screen with 16-in-1 cooking functions",
+        "QuickClean basket with non-stick mesh"
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "items": [
+            {
+              "key": "Capacity",
+              "value": "7.2 Liters"
+            },
+            {
+              "key": "Power",
+              "value": "2000 W"
+            },
+            {
+              "key": "Dishwasher Safe",
+              "value": "Yes"
+            }
+          ]
+        }
+      ],
+      "seller": {
+        "id": "seller-omnitech",
+        "userId": "user-seller-omnitech",
+        "name": "OmniTech India Retail",
+        "email": "support@omnitech.in",
+        "phone": "9876543212",
+        "gstin": "27AAFCO5678G1Z2",
+        "pan": "AAFCO5678G",
+        "bankDetails": {
+          "accountNumber": "812345678902",
+          "ifsc": "ICIC0005678",
+          "bankName": "ICICI Bank",
+          "accountHolder": "OmniTech India Retail LLP"
+        },
+        "pickupAddress": {
+          "addressLine": "MIDC Industrial Area, Andheri East",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "pincode": "400093"
+        },
+        "category": "electronics",
+        "status": "VERIFIED",
+        "commissionRate": 0.08,
+        "rating": 4.6,
+        "joinedYear": 2020,
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "badge": "Top Electronics Seller",
+        "createdAt": "2020-08-20T00:00:00.000Z"
+      },
+      "bankOffers": [
+        "Bank Offer: 5% Cashback on BharatKart Axis Bank Card"
+      ],
+      "fastestDeliveryDays": 1,
+      "createdAt": "2026-11-26T09:55:40.204Z",
+      "approvalStatus": "APPROVED",
+      "sellerId": "seller-omnitech"
+    },
+    {
+      "id": "prod-rayban-aviator-classic",
+      "title": "Ray-Ban Classic Polarized Pilot Sunglasses (Gold Metal Frame, Green G-15 Lens)",
+      "brand": "Ray-Ban",
+      "category": "fashion",
+      "subCategory": "fashion-accessories",
+      "price": 7890,
+      "originalPrice": 10490,
+      "discountPercentage": 24,
+      "rating": 4.8,
+      "ratingCount": 6410,
+      "reviewCount": 820,
+      "thumbnail": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 30,
+      "isAssured": true,
+      "featuredDeal": "Fashion Deals",
+      "description": "Currently one of the most iconic sunglass models in the world. Originally designed for U.S. aviators in 1937, offering exceptional clarity, comfort and 100% UV protection.",
+      "highlights": [
+        "100% UV400 Protection with Polarized G-15 glass lenses",
+        "Ultra-durable polished gold arista metal frame",
+        "Includes original Ray-Ban leather protective case and cleaning cloth"
+      ],
+      "specifications": [
+        {
+          "category": "Frame & Lens",
+          "items": [
+            {
+              "key": "Size",
+              "value": "Standard 58 mm"
+            },
+            {
+              "key": "Polarized",
+              "value": "Yes"
+            }
+          ]
+        }
+      ],
+      "seller": {
+        "id": "seller-truecom",
+        "userId": "user-seller-truecom",
+        "name": "TrueCom Lifestyle & Fashion",
+        "email": "contact@truecomlifestyle.com",
+        "phone": "9876543213",
+        "gstin": "07AAACT9012H1Z9",
+        "pan": "AAACT9012H",
+        "bankDetails": {
+          "accountNumber": "712345678903",
+          "ifsc": "SBIN0009012",
+          "bankName": "State Bank of India",
+          "accountHolder": "TrueCom Lifestyle & Retail"
+        },
+        "pickupAddress": {
+          "addressLine": "Okhla Industrial Area Phase 3",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110020"
+        },
+        "category": "fashion",
+        "status": "VERIFIED",
+        "commissionRate": 0.15,
+        "rating": 4.5,
+        "joinedYear": 2021,
+        "city": "New Delhi",
+        "state": "Delhi",
+        "badge": "Authorized Brand Partner",
+        "createdAt": "2021-02-10T00:00:00.000Z"
+      },
+      "bankOffers": [
+        "Bank Offer: Flat ₹1,000 off with Axis Bank Card"
+      ],
+      "fastestDeliveryDays": 1,
+      "createdAt": "2026-11-26T09:55:40.204Z",
+      "approvalStatus": "APPROVED",
+      "sellerId": "seller-truecom"
+    },
+    {
+      "id": "prod-nike-air-jordan-1",
+      "title": "NIKE Air Jordan 1 Retro High OG Men's High-Top Sneakers (Chicago Lost & Found)",
+      "brand": "Nike",
+      "category": "fashion",
+      "subCategory": "footwear",
+      "price": 16995,
+      "originalPrice": 19995,
+      "discountPercentage": 15,
+      "rating": 4.9,
+      "ratingCount": 5620,
+      "reviewCount": 780,
+      "thumbnail": "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 14,
+      "isAssured": true,
+      "featuredDeal": "Fashion deals",
+      "description": "The icon that started it all. The Air Jordan 1 Retro High OG reimagines the classic silhouette with aged leather aesthetics and vintage packaging storytelling.",
+      "highlights": [
+        "Premium cracked leather upper for vintage aesthetic",
+        "Encapsulated Nike Air-Sole unit in heel for cushioning",
+        "Solid rubber cupsole with deep flex grooves",
+        "Signature Wings logo on collar"
+      ],
+      "specifications": [
+        {
+          "category": "Product Details",
+          "items": [
+            {
+              "key": "Color",
+              "value": "Varsity Red / Black / Sail"
+            },
+            {
+              "key": "Closure",
+              "value": "Lace-Up"
+            },
+            {
+              "key": "Sole Material",
+              "value": "Rubber"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "sz-8",
+          "name": "UK 8",
+          "sku": "AJ1-UK8",
+          "price": 16995,
+          "originalPrice": 19995,
+          "stock": 5,
+          "size": "UK 8"
+        },
+        {
+          "id": "sz-9",
+          "name": "UK 9",
+          "sku": "AJ1-UK9",
+          "price": 16995,
+          "originalPrice": 19995,
+          "stock": 6,
+          "size": "UK 9"
+        },
+        {
+          "id": "sz-10",
+          "name": "UK 10",
+          "sku": "AJ1-UK10",
+          "price": 16995,
+          "originalPrice": 19995,
+          "stock": 3,
+          "size": "UK 10"
+        }
+      ],
+      "seller": {
+        "id": "seller-truecom",
+        "userId": "user-seller-truecom",
+        "name": "TrueCom Lifestyle & Fashion",
+        "email": "contact@truecomlifestyle.com",
+        "phone": "9876543213",
+        "gstin": "07AAACT9012H1Z9",
+        "pan": "AAACT9012H",
+        "bankDetails": {
+          "accountNumber": "712345678903",
+          "ifsc": "SBIN0009012",
+          "bankName": "State Bank of India",
+          "accountHolder": "TrueCom Lifestyle & Retail"
+        },
+        "pickupAddress": {
+          "addressLine": "Okhla Industrial Area Phase 3",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110020"
+        },
+        "category": "fashion",
+        "status": "VERIFIED",
+        "commissionRate": 0.15,
+        "rating": 4.5,
+        "joinedYear": 2021,
+        "city": "New Delhi",
+        "state": "Delhi",
+        "badge": "Authorized Brand Partner",
+        "createdAt": "2021-02-10T00:00:00.000Z"
+      },
+      "bankOffers": [
+        "10% off on first fashion purchase with coupon WELCOME200"
+      ],
+      "fastestDeliveryDays": 2,
+      "createdAt": "2026-11-26T09:55:40.204Z",
+      "approvalStatus": "APPROVED",
+      "sellerId": "seller-truecom"
+    },
+    {
+      "id": "prod-sleepwell-ortho-mattress",
+      "title": "Sleepwell Dual Ortho 6-Inch High Density Pocket Spring & Memory Foam Mattress (King)",
+      "brand": "Sleepwell",
+      "category": "home-furniture",
+      "subCategory": "bedroom",
+      "price": 13999,
+      "originalPrice": 21999,
+      "discountPercentage": 36,
+      "rating": 4.6,
+      "ratingCount": 5410,
+      "reviewCount": 680,
+      "thumbnail": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 24,
+      "isAssured": true,
+      "featuredDeal": "Home & Furniture",
+      "description": "Dual comfort technology offering a firm orthopedic support layer on one side and a plush contouring memory foam surface on the other.",
+      "highlights": [
+        "Size: 78 x 72 inches (King Size)",
+        "Zero Motion Transfer Pocket Springs",
+        "NASA-certified temperature regulating memory foam",
+        "10 Years Manufacturer Warranty"
+      ],
+      "specifications": [
+        {
+          "category": "Specifications",
+          "items": [
+            {
+              "key": "Thickness",
+              "value": "6 Inches"
+            },
+            {
+              "key": "Comfort",
+              "value": "Dual Firm & Medium Soft"
+            }
+          ]
+        }
+      ],
+      "seller": {
+        "id": "seller-livingspaces",
+        "userId": "user-seller-livingspaces",
+        "name": "LivingSpaces Atelier",
+        "email": "sales@livingspacesatelier.in",
+        "phone": "9876543214",
+        "gstin": "27AABCL3456J1Z1",
+        "pan": "AABCL3456J",
+        "bankDetails": {
+          "accountNumber": "612345678904",
+          "ifsc": "UTIB0003456",
+          "bankName": "Axis Bank",
+          "accountHolder": "LivingSpaces Atelier Pvt Ltd"
+        },
+        "pickupAddress": {
+          "addressLine": "Plot 88, Hadapsar Industrial Estate",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "pincode": "411028"
+        },
+        "category": "home-furniture",
+        "status": "VERIFIED",
+        "commissionRate": 0.12,
+        "rating": 4.7,
+        "joinedYear": 2019,
+        "city": "Pune",
+        "state": "Maharashtra",
+        "badge": "Handcrafted Direct",
+        "createdAt": "2019-11-05T00:00:00.000Z"
+      },
+      "bankOffers": [
+        "Bank Offer: No Cost EMI starting at ₹2,333/month"
+      ],
+      "fastestDeliveryDays": 3,
+      "createdAt": "2026-11-26T09:55:40.204Z",
+      "approvalStatus": "APPROVED",
+      "sellerId": "seller-livingspaces"
+    },
+    {
+      "id": "prod-lg-55-oled-evo",
+      "title": "LG OLED evo 139 cm (55 inch) Ultra HD (4K) Smart WebOS TV (OLED55C3PSA)",
+      "brand": "LG",
+      "category": "appliances",
+      "subCategory": "televisions",
+      "price": 114990,
+      "originalPrice": 179990,
+      "discountPercentage": 36,
+      "rating": 4.7,
+      "ratingCount": 4210,
+      "reviewCount": 680,
+      "thumbnail": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 18,
+      "isAssured": true,
+      "featuredDeal": "Top Offers",
+      "description": "Self-lit pixels that illuminate independently with infinite contrast. The α9 AI Processor Gen6 boosts picture and sound to cinematic heights. Features Dolby Vision IQ, Dolby Atmos, and NVIDIA G-Sync for ultimate 120Hz 4K gaming.",
+      "highlights": [
+        "Ultra HD (4K) 3840 x 2160 Pixels",
+        "120 Hz Refresh Rate with HDMI 2.1 & VRR",
+        "α9 AI Processor Gen6 with Brightness Booster",
+        "Dolby Vision IQ & Dolby Atmos Sound (40W)",
+        "Magic Remote with AI Voice Control"
+      ],
+      "specifications": [
+        {
+          "category": "Display",
+          "items": [
+            {
+              "key": "Screen Size",
+              "value": "139 cm (55 inch)"
+            },
+            {
+              "key": "Panel Type",
+              "value": "OLED evo"
+            },
+            {
+              "key": "HDR",
+              "value": "Cinema HDR, Dolby Vision, HDR10 Pro"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "lg-55-c3",
+          "name": "55 Inch (139 cm)",
+          "sku": "OLED55C3",
+          "price": 114990,
+          "originalPrice": 179990,
+          "stock": 12,
+          "size": "55 Inch"
+        },
+        {
+          "id": "lg-65-c3",
+          "name": "65 Inch (164 cm)",
+          "sku": "OLED65C3",
+          "price": 169990,
+          "originalPrice": 239990,
+          "stock": 8,
+          "size": "65 Inch"
+        }
+      ],
+      "seller": {
+        "id": "seller-omnitech",
+        "userId": "user-seller-omnitech",
+        "name": "OmniTech India Retail",
+        "email": "support@omnitech.in",
+        "phone": "9876543212",
+        "gstin": "27AAFCO5678G1Z2",
+        "pan": "AAFCO5678G",
+        "bankDetails": {
+          "accountNumber": "812345678902",
+          "ifsc": "ICIC0005678",
+          "bankName": "ICICI Bank",
+          "accountHolder": "OmniTech India Retail LLP"
+        },
+        "pickupAddress": {
+          "addressLine": "MIDC Industrial Area, Andheri East",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "pincode": "400093"
+        },
+        "category": "electronics",
+        "status": "VERIFIED",
+        "commissionRate": 0.08,
+        "rating": 4.6,
+        "joinedYear": 2020,
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "badge": "Top Electronics Seller",
+        "createdAt": "2020-08-20T00:00:00.000Z"
+      },
+      "bankOffers": [
+        "Bank Offer: ₹4,000 Instant Discount on HDFC Credit Card",
+        "Free Installation & Demo within 48 hours"
+      ],
+      "fastestDeliveryDays": 2,
+      "createdAt": "2026-11-26T09:55:40.204Z",
+      "approvalStatus": "APPROVED",
+      "sellerId": "seller-omnitech"
+    },
+    {
+      "id": "prod-forest-essentials-saffron-cream",
+      "title": "Forest Essentials Ayurvedic Kashmiri Saffron & Neem Tejasvi Night Emulsion (50g)",
+      "brand": "Forest Essentials",
+      "category": "beauty",
+      "subCategory": "skincare",
+      "price": 3250,
+      "originalPrice": 3850,
+      "discountPercentage": 15,
+      "rating": 4.8,
+      "ratingCount": 3410,
+      "reviewCount": 520,
+      "thumbnail": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 50,
+      "isAssured": true,
+      "featuredDeal": "Top Offers",
+      "description": "Infused with pure saffron grown in the valleys of Kashmir, sweet almond oil, and potent Ayurvedic botanicals to restore radiance and deep cellular hydration overnight.",
+      "highlights": [
+        "100% Ayurvedic Formulation",
+        "Infused with Pure Kashmiri Kumkuma (Saffron)",
+        "Free from Parabens, Sulfates, and Petrochemicals",
+        "Non-comedogenic and dermatologically tested"
+      ],
+      "specifications": [
+        {
+          "category": "Product Details",
+          "items": [
+            {
+              "key": "Quantity",
+              "value": "50 g"
+            },
+            {
+              "key": "Skin Type",
+              "value": "All Skin Types"
+            },
+            {
+              "key": "Formulation",
+              "value": "Emulsion Cream"
+            }
+          ]
+        }
+      ],
+      "seller": {
+        "id": "seller-truecom",
+        "userId": "user-seller-truecom",
+        "name": "TrueCom Lifestyle & Fashion",
+        "email": "contact@truecomlifestyle.com",
+        "phone": "9876543213",
+        "gstin": "07AAACT9012H1Z9",
+        "pan": "AAACT9012H",
+        "bankDetails": {
+          "accountNumber": "712345678903",
+          "ifsc": "SBIN0009012",
+          "bankName": "State Bank of India",
+          "accountHolder": "TrueCom Lifestyle & Retail"
+        },
+        "pickupAddress": {
+          "addressLine": "Okhla Industrial Area Phase 3",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110020"
+        },
+        "category": "fashion",
+        "status": "VERIFIED",
+        "commissionRate": 0.15,
+        "rating": 4.5,
+        "joinedYear": 2021,
+        "city": "New Delhi",
+        "state": "Delhi",
+        "badge": "Authorized Brand Partner",
+        "createdAt": "2021-02-10T00:00:00.000Z"
+      },
+      "bankOffers": [
+        "Flat 15% off on luxury beauty essentials"
+      ],
+      "fastestDeliveryDays": 2,
+      "createdAt": "2026-11-26T09:55:40.204Z",
+      "approvalStatus": "APPROVED",
+      "sellerId": "seller-truecom"
+    },
+    {
+      "id": "prod-solid-sheesham-desk",
+      "title": "UrbanWood Solid Sheesham Wood Work & Study Desk with 3 Drawers (Teak Finish)",
+      "brand": "UrbanWood",
+      "category": "home-furniture",
+      "subCategory": "office-furniture",
+      "price": 14499,
+      "originalPrice": 24999,
+      "discountPercentage": 42,
+      "rating": 4.7,
+      "ratingCount": 3210,
+      "reviewCount": 412,
+      "thumbnail": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 18,
+      "isAssured": true,
+      "featuredDeal": "Home & Furniture",
+      "description": "Crafted from 100% natural seasoned Sheesham rosewood. Designed with ergonomic cable management grommets and three smooth-sliding solid wood storage drawers.",
+      "highlights": [
+        "100% Solid Indian Rosewood (Sheesham)",
+        "Termite and borer resistant vacuum pressure treated",
+        "Pre-assembled top with easy DIY leg attachment",
+        "5 Years Comprehensive Wood Warranty"
+      ],
+      "specifications": [
+        {
+          "category": "Dimensions",
+          "items": [
+            {
+              "key": "Width",
+              "value": "120 cm"
+            },
+            {
+              "key": "Depth",
+              "value": "60 cm"
+            },
+            {
+              "key": "Height",
+              "value": "76 cm"
+            }
+          ]
+        }
+      ],
+      "seller": {
+        "id": "seller-livingspaces",
+        "userId": "user-seller-livingspaces",
+        "name": "LivingSpaces Atelier",
+        "email": "sales@livingspacesatelier.in",
+        "phone": "9876543214",
+        "gstin": "27AABCL3456J1Z1",
+        "pan": "AABCL3456J",
+        "bankDetails": {
+          "accountNumber": "612345678904",
+          "ifsc": "UTIB0003456",
+          "bankName": "Axis Bank",
+          "accountHolder": "LivingSpaces Atelier Pvt Ltd"
+        },
+        "pickupAddress": {
+          "addressLine": "Plot 88, Hadapsar Industrial Estate",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "pincode": "411028"
+        },
+        "category": "home-furniture",
+        "status": "VERIFIED",
+        "commissionRate": 0.12,
+        "rating": 4.7,
+        "joinedYear": 2019,
+        "city": "Pune",
+        "state": "Maharashtra",
+        "badge": "Handcrafted Direct",
+        "createdAt": "2019-11-05T00:00:00.000Z"
+      },
+      "bankOffers": [
+        "Bank Offer: Flat ₹1,500 off with HDFC Card"
+      ],
+      "fastestDeliveryDays": 3,
+      "createdAt": "2026-11-26T09:55:40.204Z",
+      "approvalStatus": "APPROVED",
+      "sellerId": "seller-livingspaces"
     },
     {
       "id": "prod-macbook-air-m3",
@@ -634,154 +1393,43 @@
       "sellerId": "seller-retailnet"
     },
     {
-      "id": "prod-lg-55-oled-evo",
-      "title": "LG OLED evo 139 cm (55 inch) Ultra HD (4K) Smart WebOS TV (OLED55C3PSA)",
-      "brand": "LG",
+      "id": "prod-samsung-side-by-side-fridge",
+      "title": "SAMSUNG 653 L Convertible 5-in-1 AI Inverter Frost Free Side-by-Side Refrigerator",
+      "brand": "Samsung",
       "category": "appliances",
-      "subCategory": "televisions",
-      "price": 114990,
-      "originalPrice": 179990,
-      "discountPercentage": 36,
+      "subCategory": "refrigerators",
+      "price": 79990,
+      "originalPrice": 112990,
+      "discountPercentage": 29,
       "rating": 4.7,
-      "ratingCount": 4210,
-      "reviewCount": 680,
-      "thumbnail": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80",
+      "ratingCount": 3120,
+      "reviewCount": 410,
+      "thumbnail": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80",
       "images": [
-        "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80"
       ],
       "inStock": true,
-      "stockCount": 18,
+      "stockCount": 12,
       "isAssured": true,
       "featuredDeal": "Top Offers",
-      "description": "Self-lit pixels that illuminate independently with infinite contrast. The α9 AI Processor Gen6 boosts picture and sound to cinematic heights. Features Dolby Vision IQ, Dolby Atmos, and NVIDIA G-Sync for ultimate 120Hz 4K gaming.",
+      "description": "SpaceMax technology creates thinner walls for more interior storage space without increasing exterior dimensions. Features 5 convertible modes, SmartThings AI energy optimization, and digital inverter compressor.",
       "highlights": [
-        "Ultra HD (4K) 3840 x 2160 Pixels",
-        "120 Hz Refresh Rate with HDMI 2.1 & VRR",
-        "α9 AI Processor Gen6 with Brightness Booster",
-        "Dolby Vision IQ & Dolby Atmos Sound (40W)",
-        "Magic Remote with AI Voice Control"
-      ],
-      "specifications": [
-        {
-          "category": "Display",
-          "items": [
-            {
-              "key": "Screen Size",
-              "value": "139 cm (55 inch)"
-            },
-            {
-              "key": "Panel Type",
-              "value": "OLED evo"
-            },
-            {
-              "key": "HDR",
-              "value": "Cinema HDR, Dolby Vision, HDR10 Pro"
-            }
-          ]
-        }
-      ],
-      "variants": [
-        {
-          "id": "lg-55-c3",
-          "name": "55 Inch (139 cm)",
-          "sku": "OLED55C3",
-          "price": 114990,
-          "originalPrice": 179990,
-          "stock": 12,
-          "size": "55 Inch"
-        },
-        {
-          "id": "lg-65-c3",
-          "name": "65 Inch (164 cm)",
-          "sku": "OLED65C3",
-          "price": 169990,
-          "originalPrice": 239990,
-          "stock": 8,
-          "size": "65 Inch"
-        }
-      ],
-      "seller": {
-        "id": "seller-omnitech",
-        "userId": "user-seller-omnitech",
-        "name": "OmniTech India Retail",
-        "email": "support@omnitech.in",
-        "phone": "9876543212",
-        "gstin": "27AAFCO5678G1Z2",
-        "pan": "AAFCO5678G",
-        "bankDetails": {
-          "accountNumber": "812345678902",
-          "ifsc": "ICIC0005678",
-          "bankName": "ICICI Bank",
-          "accountHolder": "OmniTech India Retail LLP"
-        },
-        "pickupAddress": {
-          "addressLine": "MIDC Industrial Area, Andheri East",
-          "city": "Mumbai",
-          "state": "Maharashtra",
-          "pincode": "400093"
-        },
-        "category": "electronics",
-        "status": "VERIFIED",
-        "commissionRate": 0.08,
-        "rating": 4.6,
-        "joinedYear": 2020,
-        "city": "Mumbai",
-        "state": "Maharashtra",
-        "badge": "Top Electronics Seller",
-        "createdAt": "2020-08-20T00:00:00.000Z"
-      },
-      "bankOffers": [
-        "Bank Offer: ₹4,000 Instant Discount on HDFC Credit Card",
-        "Free Installation & Demo within 48 hours"
-      ],
-      "fastestDeliveryDays": 2,
-      "createdAt": "2026-11-26T09:55:40.204Z",
-      "approvalStatus": "APPROVED",
-      "sellerId": "seller-omnitech"
-    },
-    {
-      "id": "prod-dyson-v15-detect",
-      "title": "Dyson V15 Detect Extra Cordless Vacuum Cleaner with Laser Fluffy Cleaner Head",
-      "brand": "Dyson",
-      "category": "appliances",
-      "subCategory": "kitchen-appliances",
-      "price": 52900,
-      "originalPrice": 65900,
-      "discountPercentage": 19,
-      "rating": 4.8,
-      "ratingCount": 1980,
-      "reviewCount": 310,
-      "thumbnail": "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 22,
-      "isAssured": true,
-      "featuredDeal": "Deal of the Day",
-      "description": "Dyson's most powerful, intelligent cordless vacuum. Engineered with laser illumination that reveals invisible dust on hard floors. Piezo sensor continuously counts and measures dust particles to automatically increase suction power.",
-      "highlights": [
-        "Laser reveals microscopic dust",
-        "240 AW of powerful suction with Dyson Hyperdymium motor",
-        "Up to 60 minutes run time with click-in battery",
-        "LCD screen displays real-time particle count and battery countdown"
+        "653 Liters Massive Capacity for large families",
+        "Convertible 5-in-1 smart cooling modes",
+        "Twin Cooling Plus independent evaporator system",
+        "20 Years Warranty on Digital Inverter Compressor"
       ],
       "specifications": [
         {
           "category": "General",
           "items": [
             {
-              "key": "Suction Power",
-              "value": "240 AW"
+              "key": "Type",
+              "value": "Side by Side"
             },
             {
-              "key": "Weight",
-              "value": "3.1 kg"
-            },
-            {
-              "key": "Bin Volume",
-              "value": "0.76 L"
+              "key": "Capacity",
+              "value": "653 Liters"
             }
           ]
         }
@@ -817,211 +1465,12 @@
         "createdAt": "2020-08-20T00:00:00.000Z"
       },
       "bankOffers": [
-        "Bank Offer: ₹3,000 Instant Discount on Axis Bank Cards"
+        "Bank Offer: ₹5,000 Instant Discount on ICICI Bank Cards"
       ],
-      "fastestDeliveryDays": 1,
+      "fastestDeliveryDays": 2,
       "createdAt": "2026-11-26T09:55:40.204Z",
       "approvalStatus": "APPROVED",
       "sellerId": "seller-omnitech"
-    },
-    {
-      "id": "prod-nike-air-jordan-1",
-      "title": "NIKE Air Jordan 1 Retro High OG Men's High-Top Sneakers (Chicago Lost & Found)",
-      "brand": "Nike",
-      "category": "fashion",
-      "subCategory": "footwear",
-      "price": 16995,
-      "originalPrice": 19995,
-      "discountPercentage": 15,
-      "rating": 4.9,
-      "ratingCount": 5620,
-      "reviewCount": 780,
-      "thumbnail": "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 14,
-      "isAssured": true,
-      "featuredDeal": "Fashion deals",
-      "description": "The icon that started it all. The Air Jordan 1 Retro High OG reimagines the classic silhouette with aged leather aesthetics and vintage packaging storytelling.",
-      "highlights": [
-        "Premium cracked leather upper for vintage aesthetic",
-        "Encapsulated Nike Air-Sole unit in heel for cushioning",
-        "Solid rubber cupsole with deep flex grooves",
-        "Signature Wings logo on collar"
-      ],
-      "specifications": [
-        {
-          "category": "Product Details",
-          "items": [
-            {
-              "key": "Color",
-              "value": "Varsity Red / Black / Sail"
-            },
-            {
-              "key": "Closure",
-              "value": "Lace-Up"
-            },
-            {
-              "key": "Sole Material",
-              "value": "Rubber"
-            }
-          ]
-        }
-      ],
-      "variants": [
-        {
-          "id": "sz-8",
-          "name": "UK 8",
-          "sku": "AJ1-UK8",
-          "price": 16995,
-          "originalPrice": 19995,
-          "stock": 5,
-          "size": "UK 8"
-        },
-        {
-          "id": "sz-9",
-          "name": "UK 9",
-          "sku": "AJ1-UK9",
-          "price": 16995,
-          "originalPrice": 19995,
-          "stock": 6,
-          "size": "UK 9"
-        },
-        {
-          "id": "sz-10",
-          "name": "UK 10",
-          "sku": "AJ1-UK10",
-          "price": 16995,
-          "originalPrice": 19995,
-          "stock": 3,
-          "size": "UK 10"
-        }
-      ],
-      "seller": {
-        "id": "seller-truecom",
-        "userId": "user-seller-truecom",
-        "name": "TrueCom Lifestyle & Fashion",
-        "email": "contact@truecomlifestyle.com",
-        "phone": "9876543213",
-        "gstin": "07AAACT9012H1Z9",
-        "pan": "AAACT9012H",
-        "bankDetails": {
-          "accountNumber": "712345678903",
-          "ifsc": "SBIN0009012",
-          "bankName": "State Bank of India",
-          "accountHolder": "TrueCom Lifestyle & Retail"
-        },
-        "pickupAddress": {
-          "addressLine": "Okhla Industrial Area Phase 3",
-          "city": "New Delhi",
-          "state": "Delhi",
-          "pincode": "110020"
-        },
-        "category": "fashion",
-        "status": "VERIFIED",
-        "commissionRate": 0.15,
-        "rating": 4.5,
-        "joinedYear": 2021,
-        "city": "New Delhi",
-        "state": "Delhi",
-        "badge": "Authorized Brand Partner",
-        "createdAt": "2021-02-10T00:00:00.000Z"
-      },
-      "bankOffers": [
-        "10% off on first fashion purchase with coupon WELCOME200"
-      ],
-      "fastestDeliveryDays": 2,
-      "createdAt": "2026-11-26T09:55:40.204Z",
-      "approvalStatus": "APPROVED",
-      "sellerId": "seller-truecom"
-    },
-    {
-      "id": "prod-wakefit-ergonomic-chair",
-      "title": "Wakefit High Back Ergonomic Mesh Office Chair with Adjustable Lumbar Support",
-      "brand": "Wakefit",
-      "category": "home-furniture",
-      "subCategory": "office-furniture",
-      "price": 8999,
-      "originalPrice": 14999,
-      "discountPercentage": 40,
-      "rating": 4.5,
-      "ratingCount": 9810,
-      "reviewCount": 1240,
-      "thumbnail": "https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 45,
-      "isAssured": true,
-      "featuredDeal": "Home and furniture",
-      "description": "Designed for all-day comfort during long work and study hours. Features breathable Korean mesh, multi-directional 3D armrests, synchro-tilt mechanism with lock, and heavy-duty nylon wheelbase.",
-      "highlights": [
-        "Breathable high-density mesh back prevents heat buildup",
-        "Adjustable 2D Lumbar support for spine alignment",
-        "Multi-lock tilt mechanism up to 135 degrees",
-        "BIFMA certified Class-4 gas lift tested for up to 135 kg",
-        "3 Years Comprehensive Manufacturer Warranty"
-      ],
-      "specifications": [
-        {
-          "category": "Dimensions",
-          "items": [
-            {
-              "key": "Height",
-              "value": "115 - 125 cm"
-            },
-            {
-              "key": "Seat Width",
-              "value": "50 cm"
-            },
-            {
-              "key": "Max Weight Capacity",
-              "value": "135 kg"
-            }
-          ]
-        }
-      ],
-      "seller": {
-        "id": "seller-livingspaces",
-        "userId": "user-seller-livingspaces",
-        "name": "LivingSpaces Atelier",
-        "email": "sales@livingspacesatelier.in",
-        "phone": "9876543214",
-        "gstin": "27AABCL3456J1Z1",
-        "pan": "AABCL3456J",
-        "bankDetails": {
-          "accountNumber": "612345678904",
-          "ifsc": "UTIB0003456",
-          "bankName": "Axis Bank",
-          "accountHolder": "LivingSpaces Atelier Pvt Ltd"
-        },
-        "pickupAddress": {
-          "addressLine": "Plot 88, Hadapsar Industrial Estate",
-          "city": "Pune",
-          "state": "Maharashtra",
-          "pincode": "411028"
-        },
-        "category": "home-furniture",
-        "status": "VERIFIED",
-        "commissionRate": 0.12,
-        "rating": 4.7,
-        "joinedYear": 2019,
-        "city": "Pune",
-        "state": "Maharashtra",
-        "badge": "Handcrafted Direct",
-        "createdAt": "2019-11-05T00:00:00.000Z"
-      },
-      "bankOffers": [
-        "Bank Offer: Flat ₹1,000 off on all credit cards"
-      ],
-      "fastestDeliveryDays": 2,
-      "createdAt": "2026-11-26T09:55:40.204Z",
-      "approvalStatus": "APPROVED",
-      "sellerId": "seller-livingspaces"
     },
     {
       "id": "prod-apple-watch-ultra-2",
@@ -1104,174 +1553,6 @@
       "sellerId": "seller-retailnet"
     },
     {
-      "id": "prod-philips-air-fryer-xxl",
-      "title": "PHILIPS Connected Airfryer XXL 1.4 kg, 7.2 L with Rapid Air Technology",
-      "brand": "Philips",
-      "category": "appliances",
-      "subCategory": "kitchen-appliances",
-      "price": 14999,
-      "originalPrice": 22995,
-      "discountPercentage": 35,
-      "rating": 4.6,
-      "ratingCount": 7120,
-      "reviewCount": 890,
-      "thumbnail": "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 38,
-      "isAssured": true,
-      "featuredDeal": "Top Offers",
-      "description": "Healthy cooking made effortless. Cook with up to 90% less fat with Rapid Air Technology. Connect to the NutriU App to monitor your cooking from anywhere.",
-      "highlights": [
-        "7.2 Liter Capacity (1.4 kg food capacity)",
-        "2000 Watts powerful heating for fast cooking",
-        "Digital touch screen with 16-in-1 cooking functions",
-        "QuickClean basket with non-stick mesh"
-      ],
-      "specifications": [
-        {
-          "category": "General",
-          "items": [
-            {
-              "key": "Capacity",
-              "value": "7.2 Liters"
-            },
-            {
-              "key": "Power",
-              "value": "2000 W"
-            },
-            {
-              "key": "Dishwasher Safe",
-              "value": "Yes"
-            }
-          ]
-        }
-      ],
-      "seller": {
-        "id": "seller-omnitech",
-        "userId": "user-seller-omnitech",
-        "name": "OmniTech India Retail",
-        "email": "support@omnitech.in",
-        "phone": "9876543212",
-        "gstin": "27AAFCO5678G1Z2",
-        "pan": "AAFCO5678G",
-        "bankDetails": {
-          "accountNumber": "812345678902",
-          "ifsc": "ICIC0005678",
-          "bankName": "ICICI Bank",
-          "accountHolder": "OmniTech India Retail LLP"
-        },
-        "pickupAddress": {
-          "addressLine": "MIDC Industrial Area, Andheri East",
-          "city": "Mumbai",
-          "state": "Maharashtra",
-          "pincode": "400093"
-        },
-        "category": "electronics",
-        "status": "VERIFIED",
-        "commissionRate": 0.08,
-        "rating": 4.6,
-        "joinedYear": 2020,
-        "city": "Mumbai",
-        "state": "Maharashtra",
-        "badge": "Top Electronics Seller",
-        "createdAt": "2020-08-20T00:00:00.000Z"
-      },
-      "bankOffers": [
-        "Bank Offer: 5% Cashback on BharatKart Axis Bank Card"
-      ],
-      "fastestDeliveryDays": 1,
-      "createdAt": "2026-11-26T09:55:40.204Z",
-      "approvalStatus": "APPROVED",
-      "sellerId": "seller-omnitech"
-    },
-    {
-      "id": "prod-forest-essentials-saffron-cream",
-      "title": "Forest Essentials Ayurvedic Kashmiri Saffron & Neem Tejasvi Night Emulsion (50g)",
-      "brand": "Forest Essentials",
-      "category": "beauty",
-      "subCategory": "skincare",
-      "price": 3250,
-      "originalPrice": 3850,
-      "discountPercentage": 15,
-      "rating": 4.8,
-      "ratingCount": 3410,
-      "reviewCount": 520,
-      "thumbnail": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 50,
-      "isAssured": true,
-      "featuredDeal": "Top Offers",
-      "description": "Infused with pure saffron grown in the valleys of Kashmir, sweet almond oil, and potent Ayurvedic botanicals to restore radiance and deep cellular hydration overnight.",
-      "highlights": [
-        "100% Ayurvedic Formulation",
-        "Infused with Pure Kashmiri Kumkuma (Saffron)",
-        "Free from Parabens, Sulfates, and Petrochemicals",
-        "Non-comedogenic and dermatologically tested"
-      ],
-      "specifications": [
-        {
-          "category": "Product Details",
-          "items": [
-            {
-              "key": "Quantity",
-              "value": "50 g"
-            },
-            {
-              "key": "Skin Type",
-              "value": "All Skin Types"
-            },
-            {
-              "key": "Formulation",
-              "value": "Emulsion Cream"
-            }
-          ]
-        }
-      ],
-      "seller": {
-        "id": "seller-truecom",
-        "userId": "user-seller-truecom",
-        "name": "TrueCom Lifestyle & Fashion",
-        "email": "contact@truecomlifestyle.com",
-        "phone": "9876543213",
-        "gstin": "07AAACT9012H1Z9",
-        "pan": "AAACT9012H",
-        "bankDetails": {
-          "accountNumber": "712345678903",
-          "ifsc": "SBIN0009012",
-          "bankName": "State Bank of India",
-          "accountHolder": "TrueCom Lifestyle & Retail"
-        },
-        "pickupAddress": {
-          "addressLine": "Okhla Industrial Area Phase 3",
-          "city": "New Delhi",
-          "state": "Delhi",
-          "pincode": "110020"
-        },
-        "category": "fashion",
-        "status": "VERIFIED",
-        "commissionRate": 0.15,
-        "rating": 4.5,
-        "joinedYear": 2021,
-        "city": "New Delhi",
-        "state": "Delhi",
-        "badge": "Authorized Brand Partner",
-        "createdAt": "2021-02-10T00:00:00.000Z"
-      },
-      "bankOffers": [
-        "Flat 15% off on luxury beauty essentials"
-      ],
-      "fastestDeliveryDays": 2,
-      "createdAt": "2026-11-26T09:55:40.204Z",
-      "approvalStatus": "APPROVED",
-      "sellerId": "seller-truecom"
-    },
-    {
       "id": "prod-marshall-stanmore-iii",
       "title": "Marshall Stanmore III Bluetooth Wireless Home Speaker (Black)",
       "brand": "Marshall",
@@ -1352,47 +1633,60 @@
       "sellerId": "seller-omnitech"
     },
     {
-      "id": "prod-solid-sheesham-desk",
-      "title": "UrbanWood Solid Sheesham Wood Work & Study Desk with 3 Drawers (Teak Finish)",
-      "brand": "UrbanWood",
+      "id": "prod-solimo-engineered-wood-wardrobe",
+      "title": "Solimo 3-Door Engineered Wood Wardrobe with Mirror & Drawer (Walnut Finish)",
+      "brand": "Solimo",
       "category": "home-furniture",
-      "subCategory": "office-furniture",
-      "price": 14499,
+      "subCategory": "wardrobes",
+      "price": 13999,
       "originalPrice": 24999,
-      "discountPercentage": 42,
-      "rating": 4.7,
-      "ratingCount": 3210,
-      "reviewCount": 412,
-      "thumbnail": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80",
+      "discountPercentage": 44,
+      "rating": 4.5,
+      "ratingCount": 2100,
+      "reviewCount": 340,
+      "thumbnail": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80",
       "images": [
-        "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80"
       ],
       "inStock": true,
       "stockCount": 18,
       "isAssured": true,
-      "featuredDeal": "Home & Furniture",
-      "description": "Crafted from 100% natural seasoned Sheesham rosewood. Designed with ergonomic cable management grommets and three smooth-sliding solid wood storage drawers.",
+      "featuredDeal": "Top Offers",
+      "description": "Premium European grade engineered wood with scratch-resistant melamine finish. Features integrated hanging rail, 4 spacious shelves, dedicated security lock drawer, and full-length dressing mirror.",
       "highlights": [
-        "100% Solid Indian Rosewood (Sheesham)",
-        "Termite and borer resistant vacuum pressure treated",
-        "Pre-assembled top with easy DIY leg attachment",
-        "5 Years Comprehensive Wood Warranty"
+        "Sturdy 17mm thick particle board tested for humidity resistance",
+        "Full length mirror and lockable internal drawer",
+        "Soft-close hydraulic door hinges tested for 10,000 cycles",
+        "Free expert assembly at delivery"
       ],
       "specifications": [
         {
           "category": "Dimensions",
           "items": [
             {
+              "key": "Height",
+              "value": "185 cm"
+            },
+            {
               "key": "Width",
-              "value": "120 cm"
+              "value": "115 cm"
             },
             {
               "key": "Depth",
-              "value": "60 cm"
+              "value": "48 cm"
+            }
+          ]
+        },
+        {
+          "category": "Material",
+          "items": [
+            {
+              "key": "Wood Type",
+              "value": "Engineered Particle Board"
             },
             {
-              "key": "Height",
-              "value": "76 cm"
+              "key": "Finish",
+              "value": "Walnut Matte"
             }
           ]
         }
@@ -1428,327 +1722,55 @@
         "createdAt": "2019-11-05T00:00:00.000Z"
       },
       "bankOffers": [
-        "Bank Offer: Flat ₹1,500 off with HDFC Card"
-      ],
-      "fastestDeliveryDays": 3,
-      "createdAt": "2026-11-26T09:55:40.204Z",
-      "approvalStatus": "APPROVED",
-      "sellerId": "seller-livingspaces"
-    },
-    {
-      "id": "prod-sleepwell-ortho-mattress",
-      "title": "Sleepwell Dual Ortho 6-Inch High Density Pocket Spring & Memory Foam Mattress (King)",
-      "brand": "Sleepwell",
-      "category": "home-furniture",
-      "subCategory": "bedroom",
-      "price": 13999,
-      "originalPrice": 21999,
-      "discountPercentage": 36,
-      "rating": 4.6,
-      "ratingCount": 5410,
-      "reviewCount": 680,
-      "thumbnail": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 24,
-      "isAssured": true,
-      "featuredDeal": "Home & Furniture",
-      "description": "Dual comfort technology offering a firm orthopedic support layer on one side and a plush contouring memory foam surface on the other.",
-      "highlights": [
-        "Size: 78 x 72 inches (King Size)",
-        "Zero Motion Transfer Pocket Springs",
-        "NASA-certified temperature regulating memory foam",
-        "10 Years Manufacturer Warranty"
-      ],
-      "specifications": [
-        {
-          "category": "Specifications",
-          "items": [
-            {
-              "key": "Thickness",
-              "value": "6 Inches"
-            },
-            {
-              "key": "Comfort",
-              "value": "Dual Firm & Medium Soft"
-            }
-          ]
-        }
-      ],
-      "seller": {
-        "id": "seller-livingspaces",
-        "userId": "user-seller-livingspaces",
-        "name": "LivingSpaces Atelier",
-        "email": "sales@livingspacesatelier.in",
-        "phone": "9876543214",
-        "gstin": "27AABCL3456J1Z1",
-        "pan": "AABCL3456J",
-        "bankDetails": {
-          "accountNumber": "612345678904",
-          "ifsc": "UTIB0003456",
-          "bankName": "Axis Bank",
-          "accountHolder": "LivingSpaces Atelier Pvt Ltd"
-        },
-        "pickupAddress": {
-          "addressLine": "Plot 88, Hadapsar Industrial Estate",
-          "city": "Pune",
-          "state": "Maharashtra",
-          "pincode": "411028"
-        },
-        "category": "home-furniture",
-        "status": "VERIFIED",
-        "commissionRate": 0.12,
-        "rating": 4.7,
-        "joinedYear": 2019,
-        "city": "Pune",
-        "state": "Maharashtra",
-        "badge": "Handcrafted Direct",
-        "createdAt": "2019-11-05T00:00:00.000Z"
-      },
-      "bankOffers": [
-        "Bank Offer: No Cost EMI starting at ₹2,333/month"
-      ],
-      "fastestDeliveryDays": 3,
-      "createdAt": "2026-11-26T09:55:40.204Z",
-      "approvalStatus": "APPROVED",
-      "sellerId": "seller-livingspaces"
-    },
-    {
-      "id": "prod-levis-511-jeans",
-      "title": "Levi's Men's 511 Slim Fit Advanced Stretchable Dark Indigo Denim Jeans",
-      "brand": "Levi's",
-      "category": "fashion",
-      "subCategory": "mens-bottom-wear",
-      "price": 2499,
-      "originalPrice": 4299,
-      "discountPercentage": 41,
-      "rating": 4.6,
-      "ratingCount": 14210,
-      "reviewCount": 1890,
-      "thumbnail": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 60,
-      "isAssured": true,
-      "featuredDeal": "Fashion Deals",
-      "description": "The modern slim with room to move. A contemporary alternative to straight jeans, the 511 Slim Jeans are cut close without feeling too tight.",
-      "highlights": [
-        "99% Cotton, 1% Elastane with Levi's Flex stretch",
-        "Sits below the waist with a slim leg from hip to ankle",
-        "Classic 5-pocket styling and signature red tab"
-      ],
-      "specifications": [
-        {
-          "category": "Fit & Fabric",
-          "items": [
-            {
-              "key": "Fit",
-              "value": "Slim Fit"
-            },
-            {
-              "key": "Rise",
-              "value": "Mid Rise"
-            }
-          ]
-        }
-      ],
-      "variants": [
-        {
-          "id": "lev-30",
-          "name": "30 Waist",
-          "sku": "LEV-511-30",
-          "price": 2499,
-          "originalPrice": 4299,
-          "stock": 15,
-          "size": "30"
-        },
-        {
-          "id": "lev-32",
-          "name": "32 Waist",
-          "sku": "LEV-511-32",
-          "price": 2499,
-          "originalPrice": 4299,
-          "stock": 24,
-          "size": "32"
-        },
-        {
-          "id": "lev-34",
-          "name": "34 Waist",
-          "sku": "LEV-511-34",
-          "price": 2499,
-          "originalPrice": 4299,
-          "stock": 18,
-          "size": "34"
-        },
-        {
-          "id": "lev-36",
-          "name": "36 Waist",
-          "sku": "LEV-511-36",
-          "price": 2499,
-          "originalPrice": 4299,
-          "stock": 9,
-          "size": "36"
-        }
-      ],
-      "seller": {
-        "id": "seller-truecom",
-        "userId": "user-seller-truecom",
-        "name": "TrueCom Lifestyle & Fashion",
-        "email": "contact@truecomlifestyle.com",
-        "phone": "9876543213",
-        "gstin": "07AAACT9012H1Z9",
-        "pan": "AAACT9012H",
-        "bankDetails": {
-          "accountNumber": "712345678903",
-          "ifsc": "SBIN0009012",
-          "bankName": "State Bank of India",
-          "accountHolder": "TrueCom Lifestyle & Retail"
-        },
-        "pickupAddress": {
-          "addressLine": "Okhla Industrial Area Phase 3",
-          "city": "New Delhi",
-          "state": "Delhi",
-          "pincode": "110020"
-        },
-        "category": "fashion",
-        "status": "VERIFIED",
-        "commissionRate": 0.15,
-        "rating": 4.5,
-        "joinedYear": 2021,
-        "city": "New Delhi",
-        "state": "Delhi",
-        "badge": "Authorized Brand Partner",
-        "createdAt": "2021-02-10T00:00:00.000Z"
-      },
-      "bankOffers": [
-        "Buy 2 get extra 10% off"
+        "10% off with SBI Credit Cards"
       ],
       "fastestDeliveryDays": 2,
       "createdAt": "2026-11-26T09:55:40.204Z",
       "approvalStatus": "APPROVED",
-      "sellerId": "seller-truecom"
+      "sellerId": "seller-livingspaces"
     },
     {
-      "id": "prod-rayban-aviator-classic",
-      "title": "Ray-Ban Classic Polarized Pilot Sunglasses (Gold Metal Frame, Green G-15 Lens)",
-      "brand": "Ray-Ban",
-      "category": "fashion",
-      "subCategory": "fashion-accessories",
-      "price": 7890,
-      "originalPrice": 10490,
-      "discountPercentage": 24,
-      "rating": 4.8,
-      "ratingCount": 6410,
-      "reviewCount": 820,
-      "thumbnail": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 30,
-      "isAssured": true,
-      "featuredDeal": "Fashion Deals",
-      "description": "Currently one of the most iconic sunglass models in the world. Originally designed for U.S. aviators in 1937, offering exceptional clarity, comfort and 100% UV protection.",
-      "highlights": [
-        "100% UV400 Protection with Polarized G-15 glass lenses",
-        "Ultra-durable polished gold arista metal frame",
-        "Includes original Ray-Ban leather protective case and cleaning cloth"
-      ],
-      "specifications": [
-        {
-          "category": "Frame & Lens",
-          "items": [
-            {
-              "key": "Size",
-              "value": "Standard 58 mm"
-            },
-            {
-              "key": "Polarized",
-              "value": "Yes"
-            }
-          ]
-        }
-      ],
-      "seller": {
-        "id": "seller-truecom",
-        "userId": "user-seller-truecom",
-        "name": "TrueCom Lifestyle & Fashion",
-        "email": "contact@truecomlifestyle.com",
-        "phone": "9876543213",
-        "gstin": "07AAACT9012H1Z9",
-        "pan": "AAACT9012H",
-        "bankDetails": {
-          "accountNumber": "712345678903",
-          "ifsc": "SBIN0009012",
-          "bankName": "State Bank of India",
-          "accountHolder": "TrueCom Lifestyle & Retail"
-        },
-        "pickupAddress": {
-          "addressLine": "Okhla Industrial Area Phase 3",
-          "city": "New Delhi",
-          "state": "Delhi",
-          "pincode": "110020"
-        },
-        "category": "fashion",
-        "status": "VERIFIED",
-        "commissionRate": 0.15,
-        "rating": 4.5,
-        "joinedYear": 2021,
-        "city": "New Delhi",
-        "state": "Delhi",
-        "badge": "Authorized Brand Partner",
-        "createdAt": "2021-02-10T00:00:00.000Z"
-      },
-      "bankOffers": [
-        "Bank Offer: Flat ₹1,000 off with Axis Bank Card"
-      ],
-      "fastestDeliveryDays": 1,
-      "createdAt": "2026-11-26T09:55:40.204Z",
-      "approvalStatus": "APPROVED",
-      "sellerId": "seller-truecom"
-    },
-    {
-      "id": "prod-samsung-side-by-side-fridge",
-      "title": "SAMSUNG 653 L Convertible 5-in-1 AI Inverter Frost Free Side-by-Side Refrigerator",
-      "brand": "Samsung",
+      "id": "prod-dyson-v15-detect",
+      "title": "Dyson V15 Detect Extra Cordless Vacuum Cleaner with Laser Fluffy Cleaner Head",
+      "brand": "Dyson",
       "category": "appliances",
-      "subCategory": "refrigerators",
-      "price": 79990,
-      "originalPrice": 112990,
-      "discountPercentage": 29,
-      "rating": 4.7,
-      "ratingCount": 3120,
-      "reviewCount": 410,
-      "thumbnail": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80",
+      "subCategory": "kitchen-appliances",
+      "price": 52900,
+      "originalPrice": 65900,
+      "discountPercentage": 19,
+      "rating": 4.8,
+      "ratingCount": 1980,
+      "reviewCount": 310,
+      "thumbnail": "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=800&q=80",
       "images": [
-        "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=800&q=80"
       ],
       "inStock": true,
-      "stockCount": 12,
+      "stockCount": 22,
       "isAssured": true,
-      "featuredDeal": "Top Offers",
-      "description": "SpaceMax technology creates thinner walls for more interior storage space without increasing exterior dimensions. Features 5 convertible modes, SmartThings AI energy optimization, and digital inverter compressor.",
+      "featuredDeal": "Deal of the Day",
+      "description": "Dyson's most powerful, intelligent cordless vacuum. Engineered with laser illumination that reveals invisible dust on hard floors. Piezo sensor continuously counts and measures dust particles to automatically increase suction power.",
       "highlights": [
-        "653 Liters Massive Capacity for large families",
-        "Convertible 5-in-1 smart cooling modes",
-        "Twin Cooling Plus independent evaporator system",
-        "20 Years Warranty on Digital Inverter Compressor"
+        "Laser reveals microscopic dust",
+        "240 AW of powerful suction with Dyson Hyperdymium motor",
+        "Up to 60 minutes run time with click-in battery",
+        "LCD screen displays real-time particle count and battery countdown"
       ],
       "specifications": [
         {
           "category": "General",
           "items": [
             {
-              "key": "Type",
-              "value": "Side by Side"
+              "key": "Suction Power",
+              "value": "240 AW"
             },
             {
-              "key": "Capacity",
-              "value": "653 Liters"
+              "key": "Weight",
+              "value": "3.1 kg"
+            },
+            {
+              "key": "Bin Volume",
+              "value": "0.76 L"
             }
           ]
         }
@@ -1784,9 +1806,9 @@
         "createdAt": "2020-08-20T00:00:00.000Z"
       },
       "bankOffers": [
-        "Bank Offer: ₹5,000 Instant Discount on ICICI Bank Cards"
+        "Bank Offer: ₹3,000 Instant Discount on Axis Bank Cards"
       ],
-      "fastestDeliveryDays": 2,
+      "fastestDeliveryDays": 1,
       "createdAt": "2026-11-26T09:55:40.204Z",
       "approvalStatus": "APPROVED",
       "sellerId": "seller-omnitech"
@@ -1978,103 +2000,6 @@
       "sellerId": "seller-livingspaces"
     },
     {
-      "id": "prod-solimo-engineered-wood-wardrobe",
-      "title": "Solimo 3-Door Engineered Wood Wardrobe with Mirror & Drawer (Walnut Finish)",
-      "brand": "Solimo",
-      "category": "home-furniture",
-      "subCategory": "wardrobes",
-      "price": 13999,
-      "originalPrice": 24999,
-      "discountPercentage": 44,
-      "rating": 4.5,
-      "ratingCount": 2100,
-      "reviewCount": 340,
-      "thumbnail": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80"
-      ],
-      "inStock": true,
-      "stockCount": 18,
-      "isAssured": true,
-      "featuredDeal": "Top Offers",
-      "description": "Premium European grade engineered wood with scratch-resistant melamine finish. Features integrated hanging rail, 4 spacious shelves, dedicated security lock drawer, and full-length dressing mirror.",
-      "highlights": [
-        "Sturdy 17mm thick particle board tested for humidity resistance",
-        "Full length mirror and lockable internal drawer",
-        "Soft-close hydraulic door hinges tested for 10,000 cycles",
-        "Free expert assembly at delivery"
-      ],
-      "specifications": [
-        {
-          "category": "Dimensions",
-          "items": [
-            {
-              "key": "Height",
-              "value": "185 cm"
-            },
-            {
-              "key": "Width",
-              "value": "115 cm"
-            },
-            {
-              "key": "Depth",
-              "value": "48 cm"
-            }
-          ]
-        },
-        {
-          "category": "Material",
-          "items": [
-            {
-              "key": "Wood Type",
-              "value": "Engineered Particle Board"
-            },
-            {
-              "key": "Finish",
-              "value": "Walnut Matte"
-            }
-          ]
-        }
-      ],
-      "seller": {
-        "id": "seller-livingspaces",
-        "userId": "user-seller-livingspaces",
-        "name": "LivingSpaces Atelier",
-        "email": "sales@livingspacesatelier.in",
-        "phone": "9876543214",
-        "gstin": "27AABCL3456J1Z1",
-        "pan": "AABCL3456J",
-        "bankDetails": {
-          "accountNumber": "612345678904",
-          "ifsc": "UTIB0003456",
-          "bankName": "Axis Bank",
-          "accountHolder": "LivingSpaces Atelier Pvt Ltd"
-        },
-        "pickupAddress": {
-          "addressLine": "Plot 88, Hadapsar Industrial Estate",
-          "city": "Pune",
-          "state": "Maharashtra",
-          "pincode": "411028"
-        },
-        "category": "home-furniture",
-        "status": "VERIFIED",
-        "commissionRate": 0.12,
-        "rating": 4.7,
-        "joinedYear": 2019,
-        "city": "Pune",
-        "state": "Maharashtra",
-        "badge": "Handcrafted Direct",
-        "createdAt": "2019-11-05T00:00:00.000Z"
-      },
-      "bankOffers": [
-        "10% off with SBI Credit Cards"
-      ],
-      "fastestDeliveryDays": 2,
-      "createdAt": "2026-11-26T09:55:40.204Z",
-      "approvalStatus": "APPROVED",
-      "sellerId": "seller-livingspaces"
-    },
-    {
       "id": "prod-zara-linen-formal-shirt",
       "title": "Zara Man Regular Fit 100% Pure French Linen Casual & Office Shirt",
       "brand": "Zara",
@@ -2157,6 +2082,81 @@
       "createdAt": "2026-11-26T09:55:40.204Z",
       "approvalStatus": "APPROVED",
       "sellerId": "seller-truecom"
+    },
+    {
+      "id": "prod-pending-oneplus-12r",
+      "title": "OnePlus 12R 5G (Cool Blue, 16GB RAM, 256GB Storage)",
+      "brand": "OnePlus",
+      "category": "mobiles",
+      "subCategory": "all-mobiles",
+      "price": 45999,
+      "originalPrice": 49999,
+      "discountPercentage": 8,
+      "rating": 0,
+      "ratingCount": 0,
+      "reviewCount": 0,
+      "thumbnail": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80"
+      ],
+      "inStock": true,
+      "stockCount": 40,
+      "isAssured": true,
+      "description": "Snapdragon 8 Gen 2 processor, 100W SUPERVOOC fast charge, 120Hz ProXDR display with 4th Gen LTPO.",
+      "highlights": [
+        "16GB LPDDR5X RAM & 256GB UFS 3.1 storage",
+        "5500 mAh battery with 100W SUPERVOOC charging",
+        "50MP Sony IMX890 camera system with OIS"
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "items": [
+            {
+              "key": "Processor",
+              "value": "Qualcomm Snapdragon 8 Gen 2"
+            },
+            {
+              "key": "RAM",
+              "value": "16 GB"
+            }
+          ]
+        }
+      ],
+      "seller": {
+        "id": "seller-retailnet",
+        "userId": "user-seller-retailnet",
+        "name": "RetailNet SuperStore",
+        "email": "orders@retailnet.com",
+        "phone": "9876543211",
+        "gstin": "29AABCR1234F1Z5",
+        "pan": "AABCR1234F",
+        "bankDetails": {
+          "accountNumber": "912345678901",
+          "ifsc": "HDFC0001234",
+          "bankName": "HDFC Bank",
+          "accountHolder": "RetailNet Technologies Private Limited"
+        },
+        "pickupAddress": {
+          "addressLine": "Warehouse 4B, Electronic City Phase 1",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "pincode": "560100"
+        },
+        "category": "electronics",
+        "status": "VERIFIED",
+        "commissionRate": 0.08,
+        "rating": 4.8,
+        "joinedYear": 2018,
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "badge": "Platinum Assured Seller",
+        "createdAt": "2018-04-15T00:00:00.000Z"
+      },
+      "sellerId": "seller-retailnet",
+      "approvalStatus": "PENDING_APPROVAL",
+      "fastestDeliveryDays": 2,
+      "createdAt": "2026-11-26T08:55:40.204Z"
     }
   ],
   "categories": [
@@ -2994,10 +2994,12 @@
           "price": 134999,
           "sellerId": "seller-retailnet",
           "sellerName": "RetailNet SuperStore",
-          "status": "ORDER_PLACED",
+          "status": "SHIPPED",
           "commissionRate": 0.08,
           "commissionAmount": 10800,
-          "sellerEarnings": 124199
+          "sellerEarnings": 124199,
+          "trackingNumber": "BD111222333IN",
+          "courierPartner": "BlueDart Express"
         }
       ],
       "shippingAddress": {
@@ -3018,7 +3020,7 @@
       "discount": 9901,
       "deliveryFee": 0,
       "totalAmount": 134999,
-      "currentStatus": "Order Confirmed",
+      "currentStatus": "Shipped",
       "trackingSteps": [
         {
           "status": "Ordered",
@@ -3034,9 +3036,9 @@
         },
         {
           "status": "Shipped",
-          "date": "Pending packing",
-          "completed": false,
-          "description": "Will be dispatched soon"
+          "date": "Today, just now",
+          "completed": true,
+          "description": "Dispatched via BlueDart Express (BD111222333IN)"
         },
         {
           "status": "Out For Delivery",
@@ -3052,7 +3054,7 @@
         }
       ],
       "expectedDeliveryDate": "Expected in 2 days",
-      "createdAt": "2026-11-26T08:55:40.204Z"
+      "createdAt": "2026-11-26T09:01:53.351Z"
     },
     {
       "id": "OD82910481928",
@@ -3133,7 +3135,7 @@
         }
       ],
       "expectedDeliveryDate": "Today by 7:00 PM",
-      "createdAt": "2026-11-24T09:55:40.204Z"
+      "createdAt": "2026-11-24T10:01:53.351Z"
     }
   ],
   "payouts": [
