@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/order-success/[id]":{},"/product/[id]":{},"/orders/[id]":{},"/":{}}}
+{"version":1,"functions":{"/order-success/[id]":{},"/orders/[id]":{},"/":{},"/product/[id]":{}}}

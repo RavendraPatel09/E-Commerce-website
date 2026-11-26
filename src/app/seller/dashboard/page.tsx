@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 
 export default function SellerDashboardPage() {
-  const { user } = useAuth();
+  const { user, switchPersona } = useAuth();
   const currentSellerId = user?.sellerId || "seller-retailnet";
 
   const [activeTab, setActiveTab] = useState<
@@ -293,6 +293,29 @@ export default function SellerDashboardPage() {
   return (
     <div className="space-y-6">
       <RolePersonaBar />
+
+      {/* Role Access Notice */}
+      {user?.role !== "seller" && (
+        <div className="bg-blue-50 border-l-4 border-[#2874f0] p-4 rounded-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
+          <div className="flex items-center gap-3">
+            <Store className="w-5 h-5 text-[#2874f0] shrink-0" />
+            <div>
+              <p className="text-sm font-bold text-blue-900">
+                Seller Hub Access: Seller Verification Notice
+              </p>
+              <p className="text-xs text-blue-700">
+                You are currently viewing as <strong>{user?.name || "Customer"}</strong> ({user?.role || "customer"}). Switch to a Verified Seller persona to manage your store catalog and fulfill orders.
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => switchPersona("seller", "seller-retailnet")}
+            className="bg-[#2874f0] hover:bg-blue-700 text-white font-bold text-xs px-4 py-2 rounded-sm shrink-0 transition-colors shadow-sm"
+          >
+            Switch to Verified Seller Persona
+          </button>
+        </div>
+      )}
 
       {/* Top Header Card */}
       <div className="bg-white border border-gray-200 rounded-sm p-4 md:p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
